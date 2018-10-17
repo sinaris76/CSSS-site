@@ -100,12 +100,12 @@
                             {% endblock %}
                         </ul>
                         {% if past_years %}
-                        <span>Past seminars archive:</span>
-                        <ul class="nav fa">
-                            {% for past_year in past_years %}
-                                <li><a href="{% url 'wss:home' past_year %}">{{ past_year }}</a></li>
-                            {% endfor %}
-                        </ul>
+                            <span>Past seminars archive:</span>
+                            <ul class="nav fa">
+                                {% for past_year in past_years %}
+                                    <li><a href="{% url 'wss:home' past_year %}">{{ past_year }}</a></li>
+                                {% endfor %}
+                            </ul>
                         {% endif %}
                     </div>
                     <!-- Footer menu end -->
@@ -122,8 +122,8 @@
                     </div>
                     <!-- Footer social end -->
                     <div class="copyright-info">
-                  <span>This website is created by <a href="{% url 'people:creators-list' %}">Moazzam Team</a>.<br>
-                  Copyright © 2015-2017 WSS. All Rights Reserved.</span>
+                  <span>This website is created by Moazzam Team<br>
+                  Copyright © 2018-2019 interna. All Rights Reserved.</span>
                     </div>
                     <!-- Copyright info end -->
                 </div>

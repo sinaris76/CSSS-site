@@ -34,8 +34,6 @@
 	
 */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Lato:400,400i,700,700i,900,900i);
-
 /* Typography
 ================================================== */
 
@@ -43,14 +41,36 @@
     color: white;
 }
 
+@font-face {
+    font-family: 'Iranian Sans';
+    src: url('../fonts/IranianSans.eot');
+    src: url('../fonts/IranianSans.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IranianSans.woff2') format('woff2'),
+        url('../fonts/IranianSans.woff') format('woff'),
+        url('../fonts/IranianSans.ttf') format('truetype'),
+        url('../fonts/IranianSans.svg#IranianSans') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Yekan';
+    src: url('../fonts/Yekan.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background: #fff;
     color: #333;
+    font-family: "Iranian Sans";
 }
+
 
 body,
 p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Iranian Sans';
     line-height: 24px;
     font-size: 14px;
 }
@@ -62,10 +82,10 @@ h4,
 h5,
 h6 {
     color: #1c1c24;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Iranian Sans', sans-serif;
 }
 h1 {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Iranian Sans', sans-serif;
 }
 h1 {
     font-size: 48px;
@@ -116,13 +136,13 @@ a:visited {
     text-decoration: none;
 }
 a {
-    color: #446CB3;
+    color: #fe2f43;
 }
 a:hover {
     text-decoration: none;
 }
 a.read-more {
-    color: #446CB3;
+    color: #fe2f43;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -266,7 +286,7 @@ img.pull-right {
     z-index: 1;
 }
 .bg-overlay:after {
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.0);
     z-index: 0;
     position: absolute;
     content: '';
@@ -308,7 +328,7 @@ img.pull-right {
     line-height: 28px;
     font-weight: 500;
     margin:0;
-    color: #446CB3;
+    color: #fe2f43;
 }
 
 .section-sub-title,
@@ -463,7 +483,7 @@ blockquote {
     font-size: 16px;
     border-left: 3px solid #446CB3;
     font-style: italic;
-    font-family: Lato;
+    font-family: Iranian Sans;
 }
 cite {
     display: block;
@@ -582,10 +602,11 @@ ul.list-arrow li:before {
 .nav-tabs>li>a:hover,
 .nav-tabs>li>a {
     border: 0;
+    background-color: red;
 }
 .nav>li>a:focus,
 .nav>li>a:hover {
-    background: none;
+    background-color: white;
 }
 
 a[href^=tel] {
@@ -679,7 +700,7 @@ a[href^=tel] {
     padding: 10px;
     border-radius: 3px;
     margin-right: 5px;
-    background: #446CB3;
+    background: #fe2f43;
 }
 .navbar-toggle .icon-bar {
     background: #fff;
@@ -708,7 +729,7 @@ ul.navbar-nav > li:last-child:after {
 }
 ul.navbar-nav > li > a {
     color: #333;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Iranian Sans', sans-serif;
     text-rendering: optimizeLegibility;
     display: inline-block;
     padding: 6px 10px;
@@ -726,7 +747,7 @@ ul.navbar-nav > li > a {
 }
 ul.navbar-nav > li > a:hover,
 ul.navbar-nav > li > a:focus {
-    background: none;
+    background-color: white;
 }
 ul.navbar-nav > li > a i {
     font-weight: 700;
@@ -739,12 +760,14 @@ ul.navbar-nav > li > a i {
 }
 
 ul.navbar-nav > li.active > a {
-    color: #446CB3;
+    color: #fe2f43;
     position: relative;
 }
 
 ul.navbar-nav > li:hover > a{
-    background: #446CB3;
+    background: #fe2f43;
+    border: 2px solid red;
+    border-radius: 25px;
     color: #fff;
 }
 
@@ -811,7 +834,7 @@ ul.navbar-nav > li:hover > a{
     background: none;
 }
 .dropdown-menu li a {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Iranian Sans', sans-serif;
     display: block;
     font-size: 14px;
     line-height: normal;
@@ -827,12 +850,13 @@ ul.navbar-nav > li:hover > a{
 .navbar-nav>li>.dropdown-menu>.active>a:hover,
 .navbar-nav>li>.dropdown-menu>.active>a:focus,
 .navbar-nav>li>.dropdown-menu>.active>.dropdown-menu>.active>a {
-    color: #446CB3;
+    color: #921d25;
+    background-color: #fe2f43;
 }
 
 .dropdown-menu li a:hover,
 .dropdown-menu li a:focus {
-    color: #446CB3;
+    color: #fe2f43;
     background: none !important;
 }
 @media (min-width: 768px) {
@@ -854,11 +878,11 @@ ul.navbar-nav > li:hover > a{
 
 .header-ticket .ticket-btn {
     color: #fff;
-    background: #4183D7;
+    background: #fe2f43;
 }
 .header-ticket .ticket-btn:hover,
 .header-ticket .ticket-btn:focus {
-    background: #446CB3;
+    background: #fe2f43;
     color: #fff;
 }
 /* Banner area
@@ -919,16 +943,15 @@ ul.navbar-nav > li:hover > a{
 
 .banner-title {
     color: #fff;
-    font-size: 62px;
+    font-size: 130px;
     line-height: 72px;
-    text-transform: uppercase;
 }
 .banner-subtitle{
     font-size: 36px;
     color: #fff;
 }
 .banner-subtitle2 {
-    font-size: 20px;
+    font-size: 28px;
     color: #fff;
     font-weight: lighter;
     margin-top: -20px;
@@ -1271,7 +1294,7 @@ ul.navbar-nav > li:hover > a{
     display: inline-block;
     margin: 0 50px;
     text-align: center;
-    font-family: Lato, sans-serif;
+    font-family: Iranian Sans, sans-serif;
 }
 .countdown div > span {
     line-height: 100%;
@@ -1345,6 +1368,8 @@ ul.navbar-nav > li:hover > a{
     background: -moz-linear-gradient(145deg, #F44336 0%,#D84315 100%);
     background: -webkit-linear-gradient(145deg, #F44336 0%,#D84315 100%);
     background: linear-gradient(145deg, #F44336 0%,#D84315 100%);
+    border: 2px solid red;
+    border-radius: 20px;
 }
 .countdown.bg-style > div.counter-day .smalltext {
     color: #F44336;
@@ -1355,6 +1380,8 @@ ul.navbar-nav > li:hover > a{
     background: -moz-linear-gradient(145deg, #03A9F4 0%,#1E88E5 100%);
     background: -webkit-linear-gradient(145deg, #03A9F4 0%,#1E88E5 100%);
     background: linear-gradient(145deg, #03A9F4 0%,#1E88E5 100%);
+    border: 2px solid blue;
+    border-radius: 20px;
 }
 .countdown.bg-style > div.counter-hour .smalltext {
     color: #03A9F4;
@@ -1365,6 +1392,8 @@ ul.navbar-nav > li:hover > a{
     background: -moz-linear-gradient(145deg, #8BC34A 0%,#689F38 100%);
     background: -webkit-linear-gradient(145deg, #8BC34A 0%,#689F38 100%);
     background: linear-gradient(145deg, #8BC34A 0%,#689F38 100%);
+    border: 2px solid green;
+    border-radius: 20px;
 }
 .countdown.bg-style > div.counter-minute .smalltext {
     color: #8BC34A;
@@ -1375,6 +1404,8 @@ ul.navbar-nav > li:hover > a{
     background: -moz-linear-gradient(145deg, #FFC107 0%,#F57F17 100%);
     background: -webkit-linear-gradient(145deg, #FFC107 0%,#F57F17 100%);
     background: linear-gradient(145deg, #FFC107 0%,#F57F17 100%);
+    border: 2px solid yellow;
+    border-radius: 20px;
 }
 .countdown.bg-style > div.counter-second .smalltext {
     color: #FFC107;
@@ -3050,7 +3081,7 @@ label {
 
 .sidebar ul.service-menu li a {
     background-color: #f4f4f4;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Iranian Sans Slab', serif;
     padding: 15px 20px;
     border: 0;
     margin-bottom: 8px;
