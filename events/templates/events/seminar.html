@@ -20,27 +20,13 @@
                             {{ seminar.venue.address }}
                             {% endif %}
                             {% if seminar.start_time %}
-                            <h4>Date and Time</h4>
-                            {% date_string seminar.start_time %}
+                            <h4>زمان</h4>
                             <br>{% time_string seminar.start_time %} - {% time_string seminar.end_time %}
                             {% endif %}
 
-                            <h4>Abstract</h4>
+                            <h4>خلاصه</h4>
                             {{ seminar.abstract|linebreaksbr }}
-                            <h4>Bio</h4>
-                            {{ seminar.speaker.bio|linebreaksbr }}
-                            <div>
-                                <br/>
-                                {% if seminar.material %}
-                                    <h4>Material</h4>
-                                    {% if seminar.material.slides %}
-                                        <a class="btn btn-warning" href="{{ seminar.material.slides.url }}">Slides</a>
-                                    {% endif %}
-                                    {% if seminar.material.video_url %}
-                                        <a class="btn btn-danger" href="{{ seminar.material.video_url }}">Video</a>
-                                    {% endif %}
-                                {% endif %}
-                            </div>
+
                         </div><!-- Session end -->
                     </div><!-- Col end -->
                 </div><!-- Speaker list 1 end -->
