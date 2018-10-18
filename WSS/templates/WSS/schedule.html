@@ -59,7 +59,7 @@
 
 		<div class="container">
 			<div class="row text-center">
-				<h3 class="section-sub-title" dir="rtl"> زمانبندی {{ wss }} .... </h3>
+				<h3 class="section-sub-title" dir="rtl"> زمانبندی {{ wss }}  </h3>
 			</div><!--/ Title row end -->
 		</div><!-- Container 1 end -->
 
@@ -69,7 +69,6 @@
 					<div class="row">
 						<div class="col-md-12">
 
-							<h2 class="schedule-date">Day {{ forloop.counter }} / {% date_string day %}</h2>
 
 							{% for _, events in events_by_time %}
 
@@ -86,7 +85,7 @@
 											<div class="schedule-slot-info-content">
 												<h3 class="schedule-slot-speaker-name">{{ event.speaker }}</h3>
 												{% if event.seminar %}
-													<a href="{% url 'events:seminar' event.pk %}">
+													<a dir="rtl" href="{% url 'events:seminar' event.pk %}">
 												{% elif event.workshop %}
 													<a href="{% url 'events:workshop' event.pk %}">
 												{% endif %}
