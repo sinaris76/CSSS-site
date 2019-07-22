@@ -123,7 +123,7 @@ class Sponsorship(models.Model):
 
 class ExternalLink(models.Model):
     type = models.CharField(max_length=40)
+    title = models.CharField(max_length=40)
     url = models.URLField()
-
     def __str__(self):
         return '{}: {}'.format(self.type, self.url)

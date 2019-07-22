@@ -2314,25 +2314,33 @@ h4.panel-title a.collapsed:before {
 }
 
 /* Footer social */
+@media(min-width: 768px) {
 
-.footer-social{
-    margin: 40px 0;
-}
-.footer-social ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    .footer-social {
+        margin: 10px 0;
+        position: fixed;
+        bottom: 0;
+        right: 5px;
+    }
+
+    .footer-social ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 }
 .footer-social ul li {
-    margin: 0 15px;
+    margin: 15px 15px;
     display: inline-block;
 }
 .footer-social ul li a i {
     display: block;
-    width: 36px;
-    height: 36px;
-    line-height: 34px;
-    font-size: 14px;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 36px;
     position: relative;
 }
 
@@ -2391,6 +2399,10 @@ h4.panel-title a.collapsed:before {
     color: #125688;
 }
 
+.tooltip > .tooltip-inner
+{
+    font-family: "Iranian Sans";
+}
 
 
 /*-- Copyright --*/

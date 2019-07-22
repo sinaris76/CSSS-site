@@ -50,10 +50,6 @@
 
 	/* Footer */
 
-	.footer-social ul li {
-   	margin: 0 3px 0 0;
-   }
-
    .footer-menu {
     	float: none;
 	}
@@ -785,6 +781,15 @@
 	}
 
 	/* Footer */
+	.footer-social {
+		margin: 40px 0;
+	}
+
+	.footer-social ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
 	.footer-social ul li{
 		margin: 15px;
