@@ -1289,7 +1289,10 @@ ul.navbar-nav > li:hover > a{
 
 /* Countdown Default
 ================================================== */
-
+.countdown:focus
+{
+    outline: none;
+}
 .countdown > div {
     display: inline-block;
     margin: 0 50px;

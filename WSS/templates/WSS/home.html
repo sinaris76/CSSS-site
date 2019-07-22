@@ -16,17 +16,21 @@
                     </button>
                     <nav class="collapse navbar-collapse navbar-responsive-collapse pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a style="text-shadow: 0px 0px 4px black;" href="{% url 'wss:home' wss.year %}">{{ wss }}</a></li>
+                            <li><a style="text-shadow: 0px 0px 4px black;"
+                                   href="{% url 'wss:home' wss.year %}">{{ wss }}</a></li>
 
                             <li><a style="text-shadow: 0px 0px 5px black;" href="#ts-intro">درباره</a></li>
                             <li><a style="text-shadow: 0px 0px 5px black;" href="#ts-speakers">ارائه‌دهندگان</a></li>
-                            <li><a style="text-shadow: 0px 0px 5px black;" href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a></li>
-                            <li><a style="text-shadow: 0px 0px 5px black;" data-scroll href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
+                            <li><a style="text-shadow: 0px 0px 5px black;" href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a>
+                            </li>
+                            <li><a style="text-shadow: 0px 0px 5px black;" data-scroll
+                                   href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
 
                             {% if wss.is_active %}
                                 {% if wss.registration_link %}
                                     <li class="header-ticket">
-                                        <a class="btn btn-danger" style="border: 2px solid red; border-radius: 25px;" href="{{ wss.registration_link }}">ثبت‌نام</a>
+                                        <a class="btn btn-danger" style="border: 2px solid red; border-radius: 25px;"
+                                           href="{{ wss.registration_link }}">ثبت‌نام</a>
                                     </li>
                                 {% endif %}
                             {% else %}
@@ -55,30 +59,57 @@
             <div class="container">
                 <div class="banner-content text-center">
                     {% if wss.is_active %}
-                        <div class="">
-                            <div class="countdown bg-style">
-                                <div class="counter-day ">
-                                    <span class="days">00</span>
-                                    <div class="smalltext">روز</div>
-                                </div>
-                                <div class="counter-hour">
-                                    <span class="hours">00</span>
-                                    <div class="smalltext">ساعت</div>
-                                </div>
-                                <div class="counter-minute">
-                                    <span class="minutes">00</span>
-                                    <div class="smalltext">دقیقه</div>
-                                </div>
-                                <div class="counter-second">
-                                    <span class="seconds">00</span>
-                                    <div class="smalltext">ثانیه</div>
+                        <div class="row">
+                        <div class="timerCarousel col-md-8 col-md-offset-2" >
+                            <div class="">
+                                <div>تهران</div>
+                                <div class="countdown countdown-teh bg-style">
+                                    <div class="counter-day ">
+                                        <span class="days">11</span>
+                                        <div class="smalltext">روز</div>
+                                    </div>
+                                    <div class="counter-hour">
+                                        <span class="hours">22</span>
+                                        <div class="smalltext">ساعت</div>
+                                    </div>
+                                    <div class="counter-minute">
+                                        <span class="minutes">33</span>
+                                        <div class="smalltext">دقیقه</div>
+                                    </div>
+                                    <div class="counter-second">
+                                        <span class="seconds">44</span>
+                                        <div class="smalltext">ثانیه</div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="">
+                                <div>اصفهان</div>
+                                <div class="countdown countdown-isf bg-style">
+                                    <div class="counter-day ">
+                                        <span class="days">11</span>
+                                        <div class="smalltext">روز</div>
+                                    </div>
+                                    <div class="counter-hour">
+                                        <span class="hours">22</span>
+                                        <div class="smalltext">ساعت</div>
+                                    </div>
+                                    <div class="counter-minute">
+                                        <span class="minutes">33</span>
+                                        <div class="smalltext">دقیقه</div>
+                                    </div>
+                                    <div class="counter-second">
+                                        <span class="seconds">44</span>
+                                        <div class="smalltext">ثانیه</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     {% endif %}
                     <!-- Countdown end -->
                     </br>
-                    <h1 class="banner-title" style="text-shadow: 0px 0px 13px #FF8394; color: #fe2f43; font-family: Yekan ">اینترنا</h1>
+                    <h1 class="banner-title"
+                        style="text-shadow: 0px 0px 13px #FF8394; color: #fe2f43; font-family: Yekan ">اینترنا</h1>
                     </br>
                     </br>
                     <h2 class="banner-subtitle2 " style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
@@ -90,13 +121,16 @@
                         کشور
                     </h2>
 
-                    <input type="hidden" value="{{ wss.start_date|date:'m/d/Y' }}" id="start-date">
+                    <input type="hidden" value="{{ wss.start_date_isf|date:'m/d/Y' }}" id="start-date-isf">
+                    <input type="hidden" value="{{ wss.start_date_teh|date:'m/d/Y' }}" id="start-date-teh">
                     <h3 class="banner-subtitle" style="text-shadow: 0px 0px 4px black;" dir="rtl">۳ آبان‌ماه، ۱۳۹۷</h3>
-                    <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;">ایران، تهران، دانشگاه صنعتی شریف</h3>
+                    <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;">ایران، تهران، دانشگاه صنعتی
+                        شریف</h3>
                     {% if wss.is_active %}
                         {% if wss.registration_link %}
-                            <p class="banner-btn" >
-                                <a href="{{ wss.registration_link }}" class="btn btn-danger" dir="rtl" style="font-size: 20px; border: 2px solid red; border-radius: 25px;">
+                            <p class="banner-btn">
+                                <a href="{{ wss.registration_link }}" class="btn btn-danger" dir="rtl"
+                                   style="font-size: 20px; border: 2px solid red; border-radius: 25px;">
                                     همین حالا ثبت‌نام کنید!
                                 </a>
                             </p>
@@ -123,7 +157,8 @@
                     {% if wss.is_active %}
                         <p>
                             {% if wss.registration_link %}
-                                <a href="{{ wss.registration_link }}" class="btn btn-danger" style="font-size: 15px">الان ثبت‌نام کن!</a>
+                                <a href="{{ wss.registration_link }}" class="btn btn-danger" style="font-size: 15px">الان
+                                    ثبت‌نام کن!</a>
                             {% endif %}
                             {% if wss.proposal_link %}
                                 <a href="{{ wss.proposal_link }}" class="btn btn-primary">Submit your proposal</a>
@@ -196,14 +231,15 @@
         <!--/ Container end -->
     </section>
     <!--/ Newsletter end -->
-    <section id="ts-speakers" class="ts-speakers gradient-bg" style="background-image: url('../../../static/images/bg-speakers.png');">
-        <div class="container" >
+    <section id="ts-speakers" class="ts-speakers gradient-bg"
+             style="background-image: url('../../../static/images/bg-speakers.png');">
+        <div class="container">
             <!--/ Title row end -->
             <div class="row">
 
                 <div class="row text-center">
-                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
-                    میزگرد</h3>
+                    <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
+                        میزگرد</h3>
                 </div>
 
                 {% for seminar in wss.keynote_seminars %}
@@ -215,7 +251,8 @@
             </div>
             <br>
             <div class="row text-center">
-                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: #fe2f43">ارائه‌دهندگان</h3>
+                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
+                    ارائه‌دهندگان</h3>
             </div>
             {% for seminar in selected_seminars %}
                 <div class="col-xs-12 col-sm-6 col-md-3">
@@ -234,7 +271,7 @@
     </section>
     <!-- Speakers end -->
 
-    <section class="venu-map no-padding " >
+    <section class="venu-map no-padding ">
         <div class="container-fluid">
             <div class="row ts-statics">
                 <div class="col-md-6 ">
