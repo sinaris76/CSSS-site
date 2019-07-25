@@ -2,7 +2,6 @@
 {% block title %}{{ wss }}{% endblock %}
 
 {% block navbar_items %}
-    <li><a href="{% url 'wss:home' wss.year %}">{{ wss }}</a></li>
     <!-- Home li end -->
     <li><a href="{% url 'wss:seminars-list' wss.year %}">ارائه‌دهندگان</a></li>
     <!-- Speakers li end -->
@@ -10,6 +9,8 @@
     <!-- Schedule li end -->
     <li><a href="{% url 'wss:staff-list' wss.year %}">دست‌اندرکاران</a></li>
     <!-- Staff li end -->
+    <li><a href="{% url 'wss:home'%}">صفحه اصلی</a></li>
+
     <!-- Gallery li end -->
     {% if wss.is_active %}
         {% if wss.registration_link %}

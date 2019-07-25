@@ -16,8 +16,6 @@
                     </button>
                     <nav class="collapse navbar-collapse navbar-responsive-collapse pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a style="text-shadow: 0px 0px 4px black;"
-                                   href="{% url 'wss:home' wss.year %}">{{ wss }}</a></li>
 
                             <li><a style="text-shadow: 0px 0px 5px black;" href="#ts-intro">درباره</a></li>
                             <li><a style="text-shadow: 0px 0px 5px black;" href="#ts-speakers">ارائه‌دهندگان</a></li>
@@ -25,7 +23,8 @@
                             </li>
                             <li><a style="text-shadow: 0px 0px 5px black;" data-scroll
                                    href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
-
+                            <li><a style="text-shadow: 0px 0px 4px black;"
+                                   href="{% url 'wss:home' %}">صفحه اصلی</a></li>
                             {% if wss.is_active %}
                                 {% if wss.registration_link %}
                                     <li class="header-ticket">
@@ -56,10 +55,10 @@
 
     <section id="banner">
         <div class="banner-item bg-overlay" style="background-image:url('{{ wss.main_image_url }}')">
-            <div class="container">
-                <div class="banner-content text-center">
+            <div class="container-fluid">
+                <div class="banner-content text-center row">
                     {% if wss.is_active %}
-                        <div class="row">
+                        {% comment %} <div class="row">
                         <div class="timerCarousel col-md-8 col-md-offset-2" >
                             <div class="">
                                 <div>تهران</div>
@@ -104,28 +103,25 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                        </div>{% endcomment %}
                     {% endif %}
                     <!-- Countdown end -->
-                    </br>
-                    <h1 class="banner-title"
-                        style="text-shadow: 0px 0px 13px #FF8394; color: #fe2f43; font-family: Yekan ">اینترنا</h1>
-                    </br>
-                    </br>
-                    <h2 class="banner-subtitle2 " style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
-                        ارائه هایی با نگاه به تجربه ها‌ و چالش های
-                    </h2>
-                    </br>
-                    <h2 class="banner-subtitle2 " style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
-                        کارآموزی در داخل و خارج از
-                        کشور
-                    </h2>
+                <div class="col-md-3  ml-md-4">
+                        <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۳۱ مرداد - ۲ شهریور، خانه ریاضیات اصفهان</h3>
+                        <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۵ - ۷ شهریور، دانشگاه صنعتی شریف</h3>
+                    </div>
+                    <div class="col-md-offset-9">
+                        <h1 class="banner-title mr-md-4"
+
+                            style="">
+                            مدرسه تابستانه علوم کامپیوتر</h1>
+                    </div>
+
+
 
                     <input type="hidden" value="{{ wss.start_date_isf|date:'m/d/Y' }}" id="start-date-isf">
                     <input type="hidden" value="{{ wss.start_date_teh|date:'m/d/Y' }}" id="start-date-teh">
-                    <h3 class="banner-subtitle" style="text-shadow: 0px 0px 4px black;" dir="rtl">۳ آبان‌ماه، ۱۳۹۷</h3>
-                    <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;">ایران، تهران، دانشگاه صنعتی
-                        شریف</h3>
+
                     {% if wss.is_active %}
                         {% if wss.registration_link %}
                             <p class="banner-btn">
@@ -238,7 +234,8 @@
             <div class="row">
 
                 <div class="row text-center">
-                    <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
+                    <h3 class="section-sub-title title-white"
+                        style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
                         میزگرد</h3>
                 </div>
 
@@ -251,7 +248,8 @@
             </div>
             <br>
             <div class="row text-center">
-                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: #fe2f43">
+                <h3 class="section-sub-title title-white"
+                    style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
                     ارائه‌دهندگان</h3>
             </div>
             {% for seminar in selected_seminars %}
