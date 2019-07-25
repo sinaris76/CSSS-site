@@ -34,9 +34,14 @@ jQuery(function($) {
 	/*  Event counter 
 	/* -----------------------------------------------------------*/
 
-	if ( $( '.countdown' ).length > 0 ) {
-		$(".countdown").jCounter({
-		  	date: $('#start-date').val() + ' 08:00:00',
+	if ( $( '.countdown-isf' ).length > 0 ) {
+		$(".countdown-isf").jCounter({
+		  	date: $('#start-date-isf').val() + ' 08:00:00',
+		  	fallback: function() { console.log("count finished!") }
+		});
+	}if ( $( '.countdown-teh' ).length > 0 ) {
+		$(".countdown-teh").jCounter({
+		  	date: $('#start-date-teh').val() + ' 08:00:00',
 		  	fallback: function() { console.log("count finished!") }
 		});
 	}

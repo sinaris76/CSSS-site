@@ -34,7 +34,8 @@
     <link rel="stylesheet" href="{% static 'css/colorbox.css' %}">
     <!-- Plyr -->
     <link rel="stylesheet" href="{% static 'css/plyr.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE  9]>
@@ -111,9 +112,10 @@
                     <div class="footer-social">
                         <ul>
                             {% for external_link in external_links %}
-                                <li >
+                                <li>
                                     <a href="{{ external_link.url }}">
-                                        <i data-toggle="tooltip" title="{{ external_link.title }}"class="fa fa-{{ external_link.type }}"></i>
+                                        <i data-toggle="tooltip" title="{{ external_link.title }}"
+                                           class="fa fa-{{ external_link.type }}"></i>
                                     </a>
                                 </li>
                             {% endfor %}
@@ -163,8 +165,20 @@
     <!-- Plyr -->
     <script src="{% static 'js/plyr.js' %}"></script>
     <script>plyr.setup();</script>
+
+    <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+
     <script>
         $('.footer-social [data-toggle="tooltip"]').tooltip({placement: "auto top"});
+        $(".timerCarousel").slick({
+            autoplay: true,
+            autoplaySpeed: 7000,
+            dots: true,
+            focusOnSelect: false,
+            speed: 1000,
+            pauseOnFocus: false,
+            pauseOnHover: false
+        });
     </script>
 
 </div>

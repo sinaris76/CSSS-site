@@ -11,6 +11,8 @@ class WSS(models.Model):
     registration_link = models.URLField(null=True, blank=True)
     proposal_link = models.URLField(null=True, blank=True)
     start_date = models.DateField()
+    start_date_isf = models.DateField()
+    start_date_teh = models.DateField()
     end_date = models.DateField()
     main_clip = models.OneToOneField(to='Clip', null=True, blank=True, related_name='+')
     main_image = models.OneToOneField(to='Image', null=True, blank=True, related_name='+')
