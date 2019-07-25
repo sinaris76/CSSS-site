@@ -2337,10 +2337,10 @@ h4.panel-title a.collapsed:before {
 }
 .footer-social ul li a i {
     display: block;
-    width: 50px;
-    height: 50px;
-    line-height: 40px;
-    font-size: 36px;
+    width: 54px;
+    height: 54px;
+    line-height: 51px;
+    font-size: 30px;
     position: relative;
 }
 
