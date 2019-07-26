@@ -1,7 +1,7 @@
 from django.contrib import admin
 from jet.admin import CompactInline
 
-from people.models import Staff, HoldingTeam, Speaker, TechnicalExpert, Role
+from people.models import Staff, HoldingTeam, Speaker, TechnicalExpert, Role, StudentApplication
 
 
 class StaffInline(CompactInline):
@@ -20,8 +20,13 @@ class HoldingTeamAdmin(admin.ModelAdmin):
     list_filter = ('wss__year',)
 
 
+class StudentApplicationAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(Role)
 admin.site.register(TechnicalExpert)
 admin.site.register(HoldingTeam, HoldingTeamAdmin)
 admin.site.register(Staff)
 admin.site.register(Speaker)
+admin.site.register(StudentApplication, StudentApplicationAdmin)
