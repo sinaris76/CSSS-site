@@ -20,12 +20,12 @@ class Human(PolymorphicModel):
 
 class Speaker(Human):
     degree = models.CharField(max_length=30)
-    place = models.CharField(max_length=50)
+    place = models.CharField(null=True, blank=True, max_length=50)
     bio = models.TextField()
 
     @property
     def short_bio(self):
-        return '{}, {}'.format(self.degree, self.place)
+        return '{}'.format(self.degree)
 
 
 class HoldingTeam(models.Model):

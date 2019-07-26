@@ -12,11 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <!-- Site Title -->
-    <title>{% block title %}Winter Seminar Series{% endblock %}</title>
+    <title>{% block title %}مدرسه تابستانه علوم کامپیوتر{% endblock %}</title>
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/csss.png' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/csss.png' %}" type="image/x-icon">
 
     <!-- CSS
        ================================================== -->
@@ -34,7 +34,8 @@
     <link rel="stylesheet" href="{% static 'css/colorbox.css' %}">
     <!-- Plyr -->
     <link rel="stylesheet" href="{% static 'css/plyr.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE  9]>
@@ -60,7 +61,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <nav class="collapse navbar-collapse navbar-responsive-collapse pull-right">
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav" dir="rtl" style="direction: rtl!important;">
                                 {% block navbar_items %}
                                     <li><a href="{% url 'wss:home' %}">Home</a></li>
                                     <!-- Home li end -->
@@ -111,18 +112,20 @@
                     <div class="footer-social">
                         <ul>
                             {% for external_link in external_links %}
-                                <li >
-                                    <a href="{{ external_link.url }}">
-                                        <i data-toggle="tooltip" title="{{ external_link.title }}"class="fa fa-{{ external_link.type }}"></i>
-                                    </a>
+                                <li><a href="{{ external_link.url }}">
+                                    <i data-toggle="tooltip" title="{{ external_link.title }}"
+                                       class="fa fa-{{ external_link.type }}"></i>
+                                </a>
                                 </li>
                             {% endfor %}
                         </ul>
                     </div>
+
                     <!-- Footer social end -->
                     <div class="copyright-info">
                   <span>This website is created by <a href="{% url 'people:creators-list' %}">Moazzam Team</a>.<br>
-                  Copyright © 2018-2019 interna. All Rights Reserved For <a href="http://ssc.ce.sharif.edu">SSC</a>.
+                  Copyright © 2019-2020 CSSS. All Rights Reserved For <a href="http://ssc.ce.sharif.edu">SSC</a>
+                      & <a href="https://t.me/rastaiha">Rasta</a>.
                       </span>
                     </div>
                     <!-- Copyright info end -->
@@ -163,8 +166,18 @@
     <!-- Plyr -->
     <script src="{% static 'js/plyr.js' %}"></script>
     <script>plyr.setup();</script>
+    <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
     <script>
         $('.footer-social [data-toggle="tooltip"]').tooltip({placement: "auto top"});
+        $(".timerCarousel").slick({
+            autoplay: true,
+            autoplaySpeed: 7000,
+            dots: true,
+            focusOnSelect: false,
+            speed: 1000,
+            pauseOnFocus: false,
+            pauseOnHover: false
+        });
     </script>
 
 </div>

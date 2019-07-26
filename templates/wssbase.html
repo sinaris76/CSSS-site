@@ -2,19 +2,20 @@
 {% block title %}{{ wss }}{% endblock %}
 
 {% block navbar_items %}
-    <li><a href="{% url 'wss:home' wss.year %}">{{ wss }}</a></li>
     <!-- Home li end -->
-    <li><a href="{% url 'wss:seminars-list' wss.year %}">ارائه‌دهندگان</a></li>
+    <li><a href="{% url 'wss:home'%}">صفحه اصلی</a></li>
     <!-- Speakers li end -->
-    <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a></li>
-    <!-- Schedule li end -->
     <li><a href="{% url 'wss:staff-list' wss.year %}">دست‌اندرکاران</a></li>
+    <!-- Schedule li end -->
+    <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a></li>
     <!-- Staff li end -->
+    <li><a href="{% url 'wss:seminars-list' wss.year %}">ارائه‌دهندگان</a></li>
+
     <!-- Gallery li end -->
     {% if wss.is_active %}
         {% if wss.registration_link %}
             <li class="header-ticket">
-                <a class="btn btn-danger" style="border: 2px solid red; border-radius: 25px;" href="{{ wss.registration_link }}">ثبت‌نام</a>
+                <a class="btn-registration" style="border-radius: 25px;" href="{{ wss.registration_link }}">ثبت‌نام</a>
             </li>
         {% endif %}
     {% else %}
