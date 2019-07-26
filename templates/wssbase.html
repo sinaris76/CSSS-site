@@ -3,13 +3,13 @@
 
 {% block navbar_items %}
     <!-- Home li end -->
-    <li><a href="{% url 'wss:seminars-list' wss.year %}">ارائه‌دهندگان</a></li>
-    <!-- Speakers li end -->
-    <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a></li>
-    <!-- Schedule li end -->
-    <li><a href="{% url 'wss:staff-list' wss.year %}">دست‌اندرکاران</a></li>
-    <!-- Staff li end -->
     <li><a href="{% url 'wss:home'%}">صفحه اصلی</a></li>
+    <!-- Speakers li end -->
+    <li><a href="{% url 'wss:staff-list' wss.year %}">دست‌اندرکاران</a></li>
+    <!-- Schedule li end -->
+    <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a></li>
+    <!-- Staff li end -->
+    <li><a href="{% url 'wss:seminars-list' wss.year %}">ارائه‌دهندگان</a></li>
 
     <!-- Gallery li end -->
     {% if wss.is_active %}

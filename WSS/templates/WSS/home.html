@@ -15,14 +15,14 @@
                         <span class="icon-bar"></span>
                     </button>
                     <nav class="collapse navbar-collapse navbar-responsive-collapse pull-right">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" dir="rtl" style="direction: rtl!important;">
 
-                            <li><a href="#ts-intro">درباره</a></li>
-                            <li><a href="#ts-speakers">ارائه‌دهندگان</a></li>
-                            <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a>
-                            </li>
-                            <li><a data-scroll href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
                             <li><a href="{% url 'wss:home' %}">صفحه اصلی</a></li>
+                            <li><a data-scroll href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
+                            <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a>
+                            <li><a href="#ts-speakers">ارائه‌دهندگان</a></li>
+                            </li>
+                            <li><a href="#ts-intro">درباره</a></li>
                             {% if wss.is_active %}
                                 {% if wss.registration_link %}
                                     <li class="header-ticket">
@@ -56,23 +56,23 @@
             <div class="container-fluid">
                 <div class="banner-content text-center">
 
-                    <!-- Countdown end -->
+                    <div class="col-md-offset-9 col-md-pull-9">
+                        <h1 class="banner-title mr-md-5">
+                            مدرسه تابستانه علوم کامپیوتر</h1>
+                    </div>
                     <div class="row">
-                        <div class="vertical-center col-md-3  ml-md-4">
-                            <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۳۱ مرداد - ۲
+                        <div class="vertical-center col-md-3  ml-md-5 mt-5 mt-md-0">
+                            <h3 class="banner-desc " style="text-shadow: 0px 0px 3px black;" dir="rtl">۳۱ مرداد - ۲
                                 شهریور،
                                 خانه ریاضیات اصفهان</h3>
                             <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۵ - ۷ شهریور،
                                 دانشگاه
                                 صنعتی شریف</h3>
                         </div>
-                        <div class="col-md-offset-9">
-                            <h1 class="banner-title mr-md-4">
-                                مدرسه تابستانه علوم کامپیوتر</h1>
-                        </div>
+
                     </div>
                     {% if wss.is_active %}
-                        <div class="row">
+                        <div id="div-timer" class="row mt-md-0">
                             <div class="timerCarousel col-md-8 col-md-offset-2">
                                 <div class="carousel-item">
                                     <div class="mb-4">مانده تا شروع دوره‌ی تهران</div>
@@ -119,6 +119,7 @@
                             </div>
                         </div>
                     {% endif %}
+                    <!-- Countdown end -->
 
                     <input type="hidden" value="{{ wss.start_date_isf|date:'m/d/Y' }}" id="start-date-isf">
                     <input type="hidden" value="{{ wss.start_date_teh|date:'m/d/Y' }}" id="start-date-teh">
@@ -126,9 +127,15 @@
                     {% if wss.is_active %}
                         {% if wss.registration_link %}
                             <p class="banner-btn">
-                                <a href="{{ wss.registration_link }}" class="btn btn-danger" dir="rtl"
-                                   style="font-size: 20px; border: 2px solid red; border-radius: 25px;">
+                                <a href="{{ wss.registration_link }}" class="btn btn-warning" dir="rtl"
+                                   style=" font-size: 20px; border-radius: 25px;">
                                     همین حالا ثبت‌نام کنید!
+                                </a>
+                            </p>
+                            <p class="banner-btn">
+                                <a href="{{ wss.registration_link }}" class="btn btn-registration" dir="rtl"
+                                   style="); font-size: 20px; border-radius: 25px;">
+                                    پی‌دی‌اف سوالات
                                 </a>
                             </p>
                         {% endif %}
@@ -239,7 +246,6 @@
                         style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
                         میزگرد</h3>
                 </div>
-
                 {% for seminar in wss.keynote_seminars %}
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
@@ -260,7 +266,7 @@
             {% endfor %}
         </div>
 
-        <div class="row">
+        <div style="margin: 0!important;" class="row">
             <div class="general-btn text-center">
                 <a class="btn btn-danger" href="{% url 'wss:seminars-list' wss.year %}">دیدن تمام ارائه‌دهندگان</a>
             </div>
@@ -272,7 +278,7 @@
 
     <section class="venu-map no-padding ">
         <div class="container-fluid">
-            <div class="row ts-statics">
+            <div style="margin-right: 0!important;margin-left: 0!important;" class="row ts-statics">
                 <div class="col-md-6 ">
                     <div class="bottom-contact white">
                         <h4 class="white">Organizer info</h4>

@@ -581,79 +581,7 @@
 	
 	/* Banner & Counter */
 
-	.banner-content-wrap:before{
-		top: -35px;
-	}
 
-	.countdown div > span{
-		font-size: 48px;
-	}
-
-	.countdown .smalltext{
-		font-size: 18px;
-	}
-
-	.banner-content.text-left .countdown > div.counter-day{
-		margin-left: 30px;
-	}
-
-	.banner-item{
-		min-height: 650px;
-	}
-
-	.banner-content, .banner-reg-form {
-   	padding: 200px 0;
-   	}
-
-	.banner-content .banner-title,
-	.banner-content .classic-style .banner-title{
-		font-size: 28px;
-		line-height: 36px;
-		margin-top: 10px;
-	}
-
-	.banner-subtitle {
-		font-size: 22px;
-		margin-top: 8px;
-	}
-
-	.banner-subtitle2 {
-		font-size: 12px;
-		margin-top: 8px;
-
-	}
-
-	.banner-content .banner-desc{
-		font-size: 14px;
-		margin: 0;
-	}
-
-	.banner-btn {
-   	margin: 20px 0 0;
-	}
-
-	.banner-content .banner-desc span{
-		padding: 0 15px;
-		display: block;
-		margin-bottom: 12px;
-	}
-
-	.countdown.classic-style > div{
-		margin-bottom: 20px;
-	}
-
-	.countdown.countdown-col{
-		margin-top: 30px;
-	}
-
-	.countdown.countdown-col > div{
-		margin: 20px;
-	}
-
-	.countdown .smalltext{
-		margin-bottom: 10px;
-		margin-top: 0;
-	}
 
 	/* Intro */
 
@@ -889,4 +817,88 @@
 		margin-top: 10px;
 	}
 
+}
+
+@media (max-width: 991px)
+{
+    .banner-content-wrap:before{
+		top: -35px;
+	}
+
+	.countdown div > span{
+		font-size: 48px;
+	}
+
+	.countdown .smalltext{
+		font-size: 18px;
+	}
+
+	.banner-content.text-left .countdown > div.counter-day{
+		margin-left: 30px;
+	}
+
+	.banner-item{
+		min-height: 650px;
+	}
+
+	.banner-reg-form {
+   	padding: 200px 0;
+   	}
+
+	.banner-content .banner-title,
+	.banner-content .classic-style .banner-title{
+		font-size: 5rem;
+		line-height: 36px;
+		margin-top: 10px;
+	}
+     .banner-title
+     {
+         line-height: 5rem!important;
+     }
+	.banner-subtitle {
+		font-size: 22px;
+		margin-top: 8px;
+	}
+
+	.banner-subtitle2 {
+		font-size: 12px;
+		margin-top: 8px;
+
+	}
+
+	.banner-content .banner-desc{
+		font-size: 1.5rem;
+		/*margin: 0;*/
+	}
+
+	.banner-btn {
+   	margin: 20px 0 0;
+	}
+
+	.banner-content .banner-desc span{
+		padding: 0 15px;
+		display: block;
+		margin-bottom: 12px;
+	}
+	.countdown.classic-style > div{
+		margin-bottom: 20px;
+	}
+
+	.countdown.countdown-col{
+		margin-top: 30px;
+	}
+
+	.countdown.countdown-col > div{
+		margin: 20px;
+	}
+
+	.countdown .smalltext{
+		margin-bottom: 10px;
+		margin-top: 0;
+	}
+
+    #div-timer
+    {
+        margin-top: 17rem;
+    }
 }
