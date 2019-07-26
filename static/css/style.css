@@ -39,6 +39,9 @@
     --main-yellow: #F4ED14 !important;
     --main-yellow-dark: #e1d209 !important;
     --main-yellow-dark2: #ffc672 !important;
+    --sorkhabi: #e5005e;
+    --timer-color: linear-gradient(145deg, #484848 0%, #5b5963 100%);
+
 }
 
 .white {
@@ -993,10 +996,12 @@ ul.navbar-nav > li:hover > a {
     min-height: 800px;
     color: #fff;
     background-attachment: fixed;
-    background-position: 50% 50%;
+    background-position: center;
     -webkit-background-size: cover;
-    background-size: cover;
     -webkit-backface-visibility: hidden;
+    background-repeat: no-repeat;
+
+
 }
 
 .banner-content,
@@ -1457,20 +1462,9 @@ ul.navbar-nav > li:hover > a {
     margin-top: 10px;
 }
 
-.countdown > div.counter-day {
-    color: #446CB3;
-}
-
-.countdown > div.counter-hour {
-    color: #FFC107;
-}
-
-.countdown > div.counter-minute {
-    color: #03A9F4;
-}
-
-.countdown > div.counter-second {
-    color: #8BC34A;
+.smalltext
+{
+    color: var(--sorkhabi);
 }
 
 /* Countdown col */
@@ -1507,7 +1501,7 @@ ul.navbar-nav > li:hover > a {
     border-radius: 3px;
     margin-bottom: 15px;
     display: block;
-    color: #fff;
+    color: var(--sorkhabi);
 }
 
 .countdown.bg-style div > .smalltext {
@@ -1516,55 +1510,29 @@ ul.navbar-nav > li:hover > a {
 }
 
 .countdown.bg-style > div.counter-day .days {
-    background: #F44336;
-    background: -moz-linear-gradient(145deg, #F44336 0%, #D84315 100%);
-    background: -webkit-linear-gradient(145deg, #F44336 0%, #D84315 100%);
-    background: linear-gradient(145deg, #F44336 0%, #D84315 100%);
-    border: 2px solid red;
+    background: var(--timer-color);
+    border: 2px solid #1d1e1d;
     border-radius: 20px;
-}
-
-.countdown.bg-style > div.counter-day .smalltext {
-    color: #F44336;
 }
 
 .countdown.bg-style > div.counter-hour .hours {
-    background: #03A9F4;
-    background: -moz-linear-gradient(145deg, #03A9F4 0%, #1E88E5 100%);
-    background: -webkit-linear-gradient(145deg, #03A9F4 0%, #1E88E5 100%);
-    background: linear-gradient(145deg, #03A9F4 0%, #1E88E5 100%);
-    border: 2px solid blue;
+    background: var(--timer-color);
+    border: 2px solid #1d1e1d;
     border-radius: 20px;
-}
-
-.countdown.bg-style > div.counter-hour .smalltext {
-    color: #03A9F4;
 }
 
 .countdown.bg-style > div.counter-minute .minutes {
-    background: #8BC34A;
-    background: -moz-linear-gradient(145deg, #8BC34A 0%, #689F38 100%);
-    background: -webkit-linear-gradient(145deg, #8BC34A 0%, #689F38 100%);
-    background: linear-gradient(145deg, #8BC34A 0%, #689F38 100%);
-    border: 2px solid green;
-    border-radius: 20px;
-}
+    background: var(--timer-color);
 
-.countdown.bg-style > div.counter-minute .smalltext {
-    color: #8BC34A;
+    border: 2px solid #1d1e1d;
+    border-radius: 20px;
 }
 
 .countdown.bg-style > div.counter-second .seconds {
-    background: #FFC107;
-    background: -moz-linear-gradient(145deg, #FFC107 0%, #F57F17 100%);
-    background: -webkit-linear-gradient(145deg, #FFC107 0%, #F57F17 100%);
-    background: linear-gradient(145deg, #FFC107 0%, #F57F17 100%);
-    border: 2px solid yellow;
-    border-radius: 20px;
-}
+    background: var(--timer-color);
 
-.countdown.bg-style > div.counter-second .smalltext {
-    color: #FFC107;
+    border: 2px solid #1d1e1d;
+    border-radius: 20px;
 }
 
 .carousel-item div:first-child {
