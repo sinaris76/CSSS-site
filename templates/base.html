@@ -109,6 +109,7 @@
                         {% endif %}
                     </div>
                     <!-- Footer menu end -->
+{% comment %}
                     <div class="footer-social">
                         <ul>
                             {% for external_link in external_links %}
@@ -120,6 +121,7 @@
                             {% endfor %}
                         </ul>
                     </div>
+{% endcomment %}
                     <!-- Footer social end -->
                     <div class="copyright-info">
                   <span>This website is created by <a href="{% url 'people:creators-list' %}">Moazzam Team</a>.<br>
