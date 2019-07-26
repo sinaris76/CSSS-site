@@ -2,6 +2,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 
 from WSS.mixins import FooterMixin
+from WSS.models import WSS
 from people.models import TechnicalExpert, StudentApplication
 from people.forms import RegistrationForm
 
@@ -14,8 +15,14 @@ class CreatorsListView(FooterMixin, ListView):
 
 class RegistrationView(FormView):
     form_class = RegistrationForm
+    form_class.label_suffix = ""
     template_name = 'people/register.html'
     success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super(RegistrationView, self).get_context_data(**kwargs)
+        context['wss'] = WSS.active_wss()
+        return context
 
     def form_valid(self, form):
         application = StudentApplication.objects.create(

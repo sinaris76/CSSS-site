@@ -499,13 +499,11 @@ img.pull-right {
     padding: 6px 12px;
     height: 34px;
     background: none;
-    color: #fff;
     font-size: 12px;
     border-radius: 0;
     border: 0;
     padding-left: 0;
     border-radius: 0;
-    color: #fff;
     border-bottom: 1px solid #dedede;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }

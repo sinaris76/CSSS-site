@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'polymorphic',
     'sorl.thumbnail',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +169,5 @@ JET_INDEX_DASHBOARD = 'WSS_Site.dashboard.IndexDashboard'
 from django.utils.log import DEFAULT_LOGGING
 
 DEFAULT_LOGGING['handlers']['console']['filters'] = []
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

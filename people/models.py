@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from polymorphic.models import PolymorphicModel
 from enum import Enum
@@ -57,14 +58,14 @@ class TechnicalExpert(Human):
 
 
 class City(Enum):
-    Isfahan = 'Isfahan'
-    Tehran = 'Tehran'
+    Isfahan = 'اصفهان'
+    Tehran = 'تهران'
 
 
 class Grade(Enum):
-    haftom = 'haftom'
-    hashtom = 'hashtom'
-    nohom = 'nohom'
+    abbas = 'هفتم'
+    hashtom = 'هشتم'
+    nohom = 'نهم'
 
 
 class StudentApplication(models.Model):
@@ -73,9 +74,9 @@ class StudentApplication(models.Model):
     school_name = models.CharField(max_length=100)
     city = models.CharField(max_length=40)
     email = models.EmailField(max_length=40)
-    answer = models.FileField(upload_to='answers/')
-    grade = models.CharField(max_length=7, choices=[(tag.value, tag.name) for tag in Grade])
-    city_wanted = models.CharField(max_length=7, choices=[(tag.value, tag.name) for tag in City], default='Isfahan')
+    answer = models.FileField(upload_to='answers/', validators=[FileExtensionValidator(['pdf'])])
+    grade = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in Grade])
+    city_wanted = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in City], default='اصفهان')
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
