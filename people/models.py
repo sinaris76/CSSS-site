@@ -1,5 +1,7 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from polymorphic.models import PolymorphicModel
+from enum import Enum
 
 
 class Human(PolymorphicModel):
@@ -53,3 +55,29 @@ class Role(models.Model):
 
 class TechnicalExpert(Human):
     role = models.ForeignKey(to=Role, related_name='technical_experts')
+
+
+class City(Enum):
+    Isfahan = 'اصفهان'
+    Tehran = 'تهران'
+
+
+class Grade(Enum):
+    abbas = 'هفتم'
+    hashtom = 'هشتم'
+    nohom = 'نهم'
+
+
+class StudentApplication(models.Model):
+    first_name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
+    school_name = models.CharField(max_length=100)
+    city = models.CharField(max_length=40)
+    email = models.EmailField(max_length=40)
+    answer = models.FileField(upload_to='answers/', validators=[FileExtensionValidator(['pdf'])])
+    grade = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in Grade])
+    city_wanted = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in City], default='اصفهان')
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
