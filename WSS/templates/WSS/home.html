@@ -56,12 +56,28 @@
     <section id="banner">
         <div class="banner-item bg-overlay" style="background-image:url('{{ wss.main_image_url }}')">
             <div class="container-fluid">
-                <div class="banner-content text-center row">
+                <div class="banner-content text-center">
+
+                    <!-- Countdown end -->
+                    <div class="row">
+                        <div class="col-md-3  ml-md-4">
+                            <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۳۱ مرداد - ۲
+                                شهریور،
+                                خانه ریاضیات اصفهان</h3>
+                            <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۵ - ۷ شهریور،
+                                دانشگاه
+                                صنعتی شریف</h3>
+                        </div>
+                        <div class="col-md-offset-9">
+                            <h1 class="banner-title mr-md-4">
+                                مدرسه تابستانه علوم کامپیوتر</h1>
+                        </div>
+                    </div>
                     {% if wss.is_active %}
-                        {% comment %} <div class="row">
+                         <div class="row">
                         <div class="timerCarousel col-md-8 col-md-offset-2" >
-                            <div class="">
-                                <div>تهران</div>
+                            <div class="carousel-item">
+                                <div class="mb-4">مانده تا شروع دوره‌ی تهران</div>
                                 <div class="countdown countdown-teh bg-style">
                                     <div class="counter-day ">
                                         <span class="days">00</span>
@@ -81,8 +97,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="">
-                                <div>اصفهان</div>
+                            <div class="carousel-item">
+                                <div class="mb-4">مانده تا شروع دوره‌ی اصفهان</div>
                                 <div class="countdown countdown-isf bg-style">
                                     <div class="counter-day ">
                                         <span class="days">00</span>
@@ -103,21 +119,8 @@
                                 </div>
                             </div>
                         </div>
-                        </div>{% endcomment %}
+                        </div>
                     {% endif %}
-                    <!-- Countdown end -->
-                <div class="col-md-3  ml-md-4">
-                        <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۳۱ مرداد - ۲ شهریور، خانه ریاضیات اصفهان</h3>
-                        <h3 class="banner-desc" style="text-shadow: 0px 0px 3px black;" dir="rtl">۵ - ۷ شهریور، دانشگاه صنعتی شریف</h3>
-                    </div>
-                    <div class="col-md-offset-9">
-                        <h1 class="banner-title mr-md-4"
-
-                            style="">
-                            مدرسه تابستانه علوم کامپیوتر</h1>
-                    </div>
-
-
 
                     <input type="hidden" value="{{ wss.start_date_isf|date:'m/d/Y' }}" id="start-date-isf">
                     <input type="hidden" value="{{ wss.start_date_teh|date:'m/d/Y' }}" id="start-date-teh">

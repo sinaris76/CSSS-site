@@ -909,7 +909,7 @@ ul.navbar-nav > li:hover > a{
 
 .banner-content,
 .banner-reg-form {
-    padding: 280px 0;
+    padding: 280px 0 0;
     width: 100%;
     vertical-align: middle;
     position: relative;
@@ -1419,6 +1419,10 @@ ul.navbar-nav > li:hover > a{
     color: #FFC107;
 }
 
+.carousel-item div:first-child
+{
+    font-size: 2rem;
+}
 
 /* banner-content-left */
 
