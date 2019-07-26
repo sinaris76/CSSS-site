@@ -153,17 +153,22 @@
     <section id="ts-intro" class="ts-intro no-padding">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6">
+            {% if wss.main_clip_url %}
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="intro-video">
+                        <video controls class="embed-responsive-item" src="{{ wss.main_clip_url }}" preload="none">
+                        </video>
+                    </div>
+                    </div>
+                {% endif %}
+                <div class="col-xs-12 col-sm-12 col-md-6" dir="rtl" style="direction: rtl!important;">
+
                     <h2 class="intro-title">درباره این رویداد</h2>
                     </br>
                     <p class="intro-desc" dir="rtl">{{ wss.description }}</p>
                     </br>
                     {% if wss.is_active %}
                         <p>
-                            {% if wss.registration_link %}
-                                <a href="{{ wss.registration_link }}" class="btn btn-danger" style="font-size: 15px">الان
-                                    ثبت‌نام کن!</a>
-                            {% endif %}
                             {% if wss.proposal_link %}
                                 <a href="{{ wss.proposal_link }}" class="btn btn-primary">Submit your proposal</a>
                             {% endif %}
@@ -174,16 +179,10 @@
                     {% endif %}
                 </div>
 
-                {% if wss.main_clip_url %}
-                    <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="intro-video">
-                        <video controls class="embed-responsive-item" src="{{ wss.main_clip_url }}" preload="none">
-                        </video>
-                    </div>
-                {% endif %}
+
 
                 <!-- Col end -->
-                </div>
+
                 <!-- Content row 1 end -->
             </div>
         </div>
@@ -268,7 +267,7 @@
 
         <div style="margin: 0!important;" class="row">
             <div class="general-btn text-center">
-                <a class="btn btn-danger" href="{% url 'wss:seminars-list' wss.year %}">دیدن تمام ارائه‌دهندگان</a>
+                <a class="btn btn-registration" href="{% url 'wss:seminars-list' wss.year %}">دیدن تمام ارائه‌دهندگان</a>
             </div>
         </div>
         <!-- Content row 2 end -->

@@ -371,6 +371,7 @@ img.pull-right {
     font-weight: 500;
     margin: 0;
     color: var(--main-yellow);
+    dir
 }
 
 .section-sub-title,
@@ -2120,7 +2121,8 @@ ul.navbar-nav > li:hover > a {
 ================================================== */
 
 .ts-statics {
-    background: url(../images/pattern1.png);
+    background-image: url(../images/pattern1.jpg);
+    background-size: cover;
     padding: 40px 0;
 }
 
