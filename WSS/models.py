@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from sorl.thumbnail import ImageField
 
 from events.models import Workshop, Seminar
+from people.models import Staff
 
 
 class WSS(models.Model):
@@ -11,8 +12,8 @@ class WSS(models.Model):
     registration_link = models.URLField(null=True, blank=True)
     proposal_link = models.URLField(null=True, blank=True)
     start_date = models.DateField()
-    start_date_isf = models.DateField()
-    start_date_teh = models.DateField()
+    start_date_isf = models.DateField(null=True)
+    start_date_teh = models.DateField(null=True)
     end_date = models.DateField()
     main_clip = models.OneToOneField(to='Clip', null=True, blank=True, related_name='+')
     main_image = models.OneToOneField(to='Image', null=True, blank=True, related_name='+')
@@ -23,7 +24,7 @@ class WSS(models.Model):
         verbose_name_plural = 'Winter Seminar Series'
 
     def __str__(self):
-        return 'اینترنا {}'.format(self.year)
+        return 'مدرسه تابستانه علوم کامپیوتر {}'.format(self.year)
 
     @property
     def main_image_url(self):
@@ -50,6 +51,12 @@ class WSS(models.Model):
         return len(set().union(
             *[holding_team.staff.values_list('pk') for holding_team in self.holding_teams.all()]
         ))
+
+    @property
+    def staff(self):
+        print("aaaaa")
+        staff = Staff.objects.filter(holding_teams__in=self.holding_teams.all())
+        return staff
 
     @property
     def keynote_seminars(self):

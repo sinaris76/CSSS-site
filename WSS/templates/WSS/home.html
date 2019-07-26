@@ -199,12 +199,12 @@
                         <a data-scroll href="#ts-speakers">
                             <div class="ts-facts">
                         <span class="ts-facts-img">
-                        <img src="{% static 'images/icons/fact-speaker.png' %}" alt=""/>
+                        <img src="{% static 'images/icons/fact-workshop.png' %}" alt=""/>
                         </span>
                                 <div class="ts-facts-content">
-                                    <h2 class="ts-facts-num"><span class="counterUp">{{ wss.seminars.count }}</span>
+                                    <h2 class="ts-facts-num"><span class="counterUp">{{ wss.workshops.count }}</span>
                                     </h2>
-                                    <h3 class="ts-facts-title">ارائه‌ها</h3>
+                                    <h3 class="ts-facts-title">کارگاه‌ها</h3>
                                 </div>
                             </div>
                         </a>
@@ -242,10 +242,10 @@
             <div class="row">
 
                 <div class="row text-center">
-                    <h3 class="section-sub-title title-white"
-                        style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
-                        میزگرد</h3>
+                    <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
+                        کارگاه‌ها</h3>
                 </div>
+
                 {% for seminar in wss.keynote_seminars %}
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
@@ -255,20 +255,19 @@
             </div>
             <br>
             <div class="row text-center">
-                <h3 class="section-sub-title title-white"
-                    style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
-                    ارائه‌دهندگان</h3>
+                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
+                    دست‌اندرکاران</h3>
             </div>
-            {% for seminar in selected_seminars %}
+            {% for staffe in selected_staff %}
                 <div class="col-xs-12 col-sm-6 col-md-3">
-                    {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
+                    {% render_human staffe %}
                 </div>
             {% endfor %}
         </div>
 
         <div style="margin: 0!important;" class="row">
             <div class="general-btn text-center">
-                <a class="btn btn-registration" href="{% url 'wss:seminars-list' wss.year %}">دیدن تمام ارائه‌دهندگان</a>
+                <a class="btn btn-registration" href="{% url 'wss:staff-list' wss.year %}">دیدن تمام دست‌اندرکاران</a>
             </div>
         </div>
         <!-- Content row 2 end -->
@@ -282,7 +281,7 @@
                 <div class="col-md-6 ">
                     <div class="bottom-contact white">
                         <h4 class="white">Organizer info</h4>
-                        <p>The event is held by the <a href="http://ssc.ce.sharif.edu">Student Scientific
+                        <p>The event is held by <a href="https://t.me/rastaiha">Rasta Knowledge Spreading Group </a> and the <a href="http://ssc.ce.sharif.edu">Student Scientific
                             Chapter (SSC)</a> of <a href="http://ce.sharif.edu">Computer Engineering Department</a>
                             of <a href="http://sharif.edu">Sharif University of Technology</a>
                         </p>
