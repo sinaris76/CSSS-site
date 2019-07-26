@@ -17,14 +17,12 @@
                     <nav class="collapse navbar-collapse navbar-responsive-collapse pull-right">
                         <ul class="nav navbar-nav">
 
-                            <li><a style="text-shadow: 0px 0px 5px black;" href="#ts-intro">درباره</a></li>
-                            <li><a style="text-shadow: 0px 0px 5px black;" href="#ts-speakers">ارائه‌دهندگان</a></li>
-                            <li><a style="text-shadow: 0px 0px 5px black;" href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a>
+                            <li><a href="#ts-intro">درباره</a></li>
+                            <li><a href="#ts-speakers">ارائه‌دهندگان</a></li>
+                            <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a>
                             </li>
-                            <li><a style="text-shadow: 0px 0px 5px black;" data-scroll
-                                   href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
-                            <li><a style="text-shadow: 0px 0px 4px black;"
-                                   href="{% url 'wss:home' %}">صفحه اصلی</a></li>
+                            <li><a data-scroll href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
+                            <li><a href="{% url 'wss:home' %}">صفحه اصلی</a></li>
                             {% if wss.is_active %}
                                 {% if wss.registration_link %}
                                     <li class="header-ticket">
@@ -74,51 +72,51 @@
                         </div>
                     </div>
                     {% if wss.is_active %}
-                         <div class="row">
-                        <div class="timerCarousel col-md-8 col-md-offset-2" >
-                            <div class="carousel-item">
-                                <div class="mb-4">مانده تا شروع دوره‌ی تهران</div>
-                                <div class="countdown countdown-teh bg-style">
-                                    <div class="counter-day ">
-                                        <span class="days">00</span>
-                                        <div class="smalltext">روز</div>
+                        <div class="row">
+                            <div class="timerCarousel col-md-8 col-md-offset-2">
+                                <div class="carousel-item">
+                                    <div class="mb-4">مانده تا شروع دوره‌ی تهران</div>
+                                    <div class="countdown countdown-teh bg-style">
+                                        <div class="counter-day ">
+                                            <span class="days">00</span>
+                                            <div class="smalltext">روز</div>
+                                        </div>
+                                        <div class="counter-hour">
+                                            <span class="hours">00</span>
+                                            <div class="smalltext">ساعت</div>
+                                        </div>
+                                        <div class="counter-minute">
+                                            <span class="minutes">00</span>
+                                            <div class="smalltext">دقیقه</div>
+                                        </div>
+                                        <div class="counter-second">
+                                            <span class="seconds">00</span>
+                                            <div class="smalltext">ثانیه</div>
+                                        </div>
                                     </div>
-                                    <div class="counter-hour">
-                                        <span class="hours">00</span>
-                                        <div class="smalltext">ساعت</div>
-                                    </div>
-                                    <div class="counter-minute">
-                                        <span class="minutes">00</span>
-                                        <div class="smalltext">دقیقه</div>
-                                    </div>
-                                    <div class="counter-second">
-                                        <span class="seconds">00</span>
-                                        <div class="smalltext">ثانیه</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="mb-4">مانده تا شروع دوره‌ی اصفهان</div>
+                                    <div class="countdown countdown-isf bg-style">
+                                        <div class="counter-day ">
+                                            <span class="days">00</span>
+                                            <div class="smalltext">روز</div>
+                                        </div>
+                                        <div class="counter-hour">
+                                            <span class="hours">00</span>
+                                            <div class="smalltext">ساعت</div>
+                                        </div>
+                                        <div class="counter-minute">
+                                            <span class="minutes">00</span>
+                                            <div class="smalltext">دقیقه</div>
+                                        </div>
+                                        <div class="counter-second">
+                                            <span class="seconds">00</span>
+                                            <div class="smalltext">ثانیه</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="mb-4">مانده تا شروع دوره‌ی اصفهان</div>
-                                <div class="countdown countdown-isf bg-style">
-                                    <div class="counter-day ">
-                                        <span class="days">00</span>
-                                        <div class="smalltext">روز</div>
-                                    </div>
-                                    <div class="counter-hour">
-                                        <span class="hours">00</span>
-                                        <div class="smalltext">ساعت</div>
-                                    </div>
-                                    <div class="counter-minute">
-                                        <span class="minutes">00</span>
-                                        <div class="smalltext">دقیقه</div>
-                                    </div>
-                                    <div class="counter-second">
-                                        <span class="seconds">00</span>
-                                        <div class="smalltext">ثانیه</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         </div>
                     {% endif %}
 
