@@ -6,17 +6,17 @@
 {% block title %}{{ wss }} speakers{% endblock %}
 {% block content %}
     <section id="ts-speakers" class="ts-speakers gradient-bg"
-             style="background-image: url('../../../static/images/bg-speakers.png');">
+             style="background-image: url('../../../static/images/pattern1.jpg');">
         <div class="container">
             <!--/ Title row end -->
 
             <div class="row text-center">
                 <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
-                    میزگرد</h3>
+                    کارگاه‌ها</h3>
             </div>
 
             <div class="row">
-                {% for seminar in wss.keynote_seminars %}
+                {% for seminar in wss.non_keynote_seminars %}
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
                     </div>
@@ -24,15 +24,15 @@
             </div>
             <br>
 
-            <div class="row text-center">
-                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
-                    ارائه‌دهندگان</h3>
-            </div>
-            {% for seminar in wss.non_keynote_seminars %}
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
-                </div>
-            {% endfor %}
+{#            <div class="row text-center">#}
+{#                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">#}
+{#                    ارائه‌دهندگان</h3>#}
+{#            </div>#}
+{#            {% for seminar in wss.non_keynote_seminars %}#}
+{#                <div class="col-xs-12 col-sm-6 col-md-3">#}
+{#                    {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}#}
+{#                </div>#}
+{#            {% endfor %}#}
         </div>
 
     </section>

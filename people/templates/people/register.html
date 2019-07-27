@@ -1,9 +1,14 @@
 {% extends 'wssbase.html' %}
 {% load crispy_forms_tags %}
-
+{% block title %}ثبت‌نام اولیه{% endblock %}
 {% block content %}
     <section id="main-container" class="main-container container" style="padding: 15vw 0 0 0">
-
+        <div class="container">
+            <div class="text-right" style="direction: rtl">
+                دقت کنید که این ثبت‌نام اولیهٔ شما برای مدرسه تابستانه است. پس از پایان مرحله اول ثبت‌نام، با توجه شرایط و ظرفیت مدارس هم‌چنین پاسخ ارسالی شما، افراد واجد شرایط برای حضور در مدرسه اطلاع‌رسانی خواهد شد.<br>
+                امیدواریم شما را در یکی از مدارس امسال ببینیم :)
+            </div>
+        </div>
         <form dir="rtl" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
