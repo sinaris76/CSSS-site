@@ -15,7 +15,7 @@
                    <h2 class="section-sub-title title">{{ holding_team.name }}</h2>
                  </div>
                 {% for staff in holding_team.staff.all %}
-                   <div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-4">
+                   <div class="col-xs-12 col-sm-6 col-md-3">
                       {% render_human staff %}
                    </div>
                 {% endfor %}
