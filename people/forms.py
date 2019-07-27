@@ -1,4 +1,3 @@
-import requests
 from django import forms
 from people.models import *
 
