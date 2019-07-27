@@ -2617,7 +2617,7 @@ h4.panel-title a.collapsed:before {
 }
 
 .footer-social ul li a .fa-instagram {
-    color: #125688;
+    color: var(--sorkhabi);
 }
 
 .tooltip > .tooltip-inner {

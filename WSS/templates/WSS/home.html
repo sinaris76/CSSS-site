@@ -128,15 +128,15 @@
                     {% if wss.is_active %}
                         {% if wss.registration_link %}
                             <p class="banner-btn">
-                                <a href="{{ wss.registration_link }}" class="btn btn-warning" dir="rtl"
-                                   style=" font-size: 20px; border-radius: 25px;">
-                                    همین حالا ثبت‌نام کنید!
+                                <a target="_blank" href={% static 'preregistration.pdf' %} class="btn btn-registration" dir="rtl"
+                                   style="); font-size: 20px; border-radius: 25px;">
+                                     سوالات ثبت‌نام اولیه
                                 </a>
                             </p>
                             <p class="banner-btn">
-                                <a target="_blank" href={% static 'preregistration.pdf' %} class="btn btn-registration" dir="rtl"
-                                   style="); font-size: 20px; border-radius: 25px;">
-                                    PDF سوالات
+                                <a href="{{ wss.registration_link }}" class="btn btn-warning" dir="rtl"
+                                   style=" font-size: 20px; border-radius: 25px;">
+                                    ثبت‌نام کنید!
                                 </a>
                             </p>
                         {% endif %}
