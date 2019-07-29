@@ -1,3 +1,5 @@
+from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 
@@ -17,7 +19,7 @@ class RegistrationView(FormView):
     form_class = RegistrationForm
     form_class.label_suffix = ""
     template_name = 'people/register.html'
-    success_url = '/'
+    success_url = reverse_lazy('people:register_success')
 
     def get_context_data(self, **kwargs):
         context = super(RegistrationView, self).get_context_data(**kwargs)
@@ -36,3 +38,9 @@ class RegistrationView(FormView):
             city_wanted=form.cleaned_data.get('city_wanted')
         )
         return super().form_valid(form)
+
+
+def register_success(request):
+    return render(request, template_name='register_success.html', context={
+        'wss': WSS.active_wss()
+    })
