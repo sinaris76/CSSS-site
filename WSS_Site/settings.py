@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'polymorphic',
     'sorl.thumbnail',
     'crispy_forms',
+    'captcha',
 ]
 
 MIDDLEWARE = [
