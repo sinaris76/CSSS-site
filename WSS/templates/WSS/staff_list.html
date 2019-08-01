@@ -10,17 +10,16 @@
 
          <!--/ Title row end -->
             {% for holding_team in wss.holding_teams.all %}
-               <div class="row">
-
+               <div class="row justify-content-center">
                  <div class="row text-center">
                    <h2 class="section-sub-title title">{{ holding_team.name }}</h2>
                  </div>
-
                 {% for staff in holding_team.staff.all %}
                    <div class="col-xs-12 col-sm-6 col-md-3">
                       {% render_human staff %}
                    </div>
                 {% endfor %}
+
 
                </div>
                <br><br>

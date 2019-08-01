@@ -20,14 +20,14 @@
                             <li><a href="{% url 'wss:home' %}">صفحه اصلی</a></li>
                             <li><a data-scroll href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
                             <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a>
-                            <li><a href="#ts-speakers">ارائه‌دهندگان</a></li>
+                            <li><a href="#ts-speakers">کارگاه‌ها</a></li>
                             </li>
                             <li><a href="#ts-intro">درباره</a></li>
                             {% if wss.is_active %}
                                 {% if wss.registration_link %}
                                     <li class="header-ticket">
                                         <a class="btn-registration" style=" border-radius: 25px;"
-                                           href="{{ wss.registration_link }}">ثبت‌نام</a>
+                                           href="{{ wss.registration_link }}">ثبت‌نام اولیه</a>
                                     </li>
                                 {% endif %}
                             {% else %}
@@ -130,16 +130,16 @@
                             <p class="banner-btn">
                                 <a href="{{ wss.registration_link }}" class="btn btn-warning" dir="rtl"
                                    style=" font-size: 20px; border-radius: 25px;">
-                                    همین حالا ثبت‌نام کنید!
-                                </a>
-                            </p>
-                            <p class="banner-btn">
-                                <a href="{{ wss.registration_link }}" class="btn btn-registration" dir="rtl"
-                                   style="); font-size: 20px; border-radius: 25px;">
-                                    پی‌دی‌اف سوالات
+                                    ثبت‌نام کنید!
                                 </a>
                             </p>
                         {% endif %}
+                        <p class="banner-btn">
+                            <a target="_blank" href={% static 'preregistration.pdf' %} class="btn btn-registration" dir="rtl"
+                               style="); font-size: 20px; border-radius: 25px;">
+                                 سوالات ثبت‌نام اولیه
+                            </a>
+                        </p>
                     {% endif %}
                     <!-- Banner content wrap end -->
                 </div>
@@ -202,7 +202,7 @@
                         <img src="{% static 'images/icons/fact-workshop.png' %}" alt=""/>
                         </span>
                                 <div class="ts-facts-content">
-                                    <h2 class="ts-facts-num"><span class="counterUp">{{ wss.workshops.count }}</span>
+                                    <h2 class="ts-facts-num"><span class="counterUp">{{ wss.seminars.count }}</span>
                                     </h2>
                                     <h3 class="ts-facts-title">کارگاه‌ها</h3>
                                 </div>
@@ -236,7 +236,7 @@
     </section>
     <!--/ Newsletter end -->
     <section id="ts-speakers" class="ts-speakers gradient-bg"
-             style="background-image: url('../../../static/images/bg-speakers.png');">
+             style="background-image: url('../../../static/images/pattern1.jpg');">
         <div class="container">
             <!--/ Title row end -->
             <div class="row">
@@ -246,7 +246,7 @@
                         کارگاه‌ها</h3>
                 </div>
 
-                {% for seminar in wss.keynote_seminars %}
+                {% for seminar in wss.non_keynote_seminars %}
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
                     </div>

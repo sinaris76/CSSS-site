@@ -21,7 +21,7 @@ class HoldingTeamAdmin(admin.ModelAdmin):
 
 
 class StudentApplicationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('first_name', 'last_name')
 
 
 admin.site.register(Role)

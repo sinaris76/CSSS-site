@@ -54,8 +54,7 @@ class WSS(models.Model):
 
     @property
     def staff(self):
-        print("aaaaa")
-        staff = Staff.objects.filter(holding_teams__in=self.holding_teams.all())
+        staff = Staff.objects.all()
         return staff
 
     @property

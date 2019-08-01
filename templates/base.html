@@ -63,11 +63,8 @@
                         <nav class="collapse navbar-collapse navbar-responsive-collapse pull-right">
                             <ul class="nav navbar-nav" dir="rtl" style="direction: rtl!important;">
                                 {% block navbar_items %}
-                                    <li><a href="{% url 'wss:home' %}">Home</a></li>
-                                    <!-- Home li end -->
                                     <li class="header-ticket">
-                                        <a href="{% url 'wss:home' %}" class="ticket-btn btn-primary">Visit the last
-                                            seminar page</a>
+                                        <a href="{% url 'wss:home' %}" class="ticket-btn btn-primary">صفحهٔ اصلی</a>
                                     </li>
                                 {% endblock %}
                                 <!-- Register li end -->
@@ -109,6 +106,20 @@
                         {% endif %}
                     </div>
                     <!-- Footer menu end -->
+                    <div class="footer-logo">
+                        <a href="http://ssc.ce.sharif.edu">
+                            <img src="/static/images/SSC-logo-white.png" alt="footer logo" width="100">
+                        </a>
+                        <a href="https://t.me/rastaiha">
+                            <img src="/static/images/rasta-logo.png" alt="footer logo" width="100">
+                        </a>
+                        <a href="http://www.mathhouse.org" >
+                            <img src="/static/images/Arm-Riyazi-Esfahan.png" alt="footer logo" width="80">
+                        </a>
+                        <a href="{% url 'wss:home' %}" >
+                            <img src="/static/images/csss-white.png" alt="footer logo" width="75">
+                        </a>
+                    </div>
                     <div class="footer-social">
                         <ul>
                             {% for external_link in external_links %}
@@ -123,7 +134,8 @@
 
                     <!-- Footer social end -->
                     <div class="copyright-info">
-                  <span>This website is created by <a href="{% url 'people:creators-list' %}">Moazzam Team</a>.<br>
+                        <span>This website is created by <a href="{% url 'people:creators-list' %}">Modabdab</a> +
+                            <a href="http://wss.ce.sharif.edu/creators/">Moazzam </a> Team.<br>
                   Copyright © 2019-2020 CSSS. All Rights Reserved For <a href="http://ssc.ce.sharif.edu">SSC</a>
                       & <a href="https://t.me/rastaiha">Rasta</a>.
                       </span>

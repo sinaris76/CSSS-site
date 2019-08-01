@@ -9,7 +9,7 @@
     <!-- Schedule li end -->
     <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a></li>
     <!-- Staff li end -->
-    <li><a href="{% url 'wss:seminars-list' wss.year %}">ارائه‌دهندگان</a></li>
+    <li><a href="{% url 'wss:seminars-list' wss.year %}">کارگاه‌ها</a></li>
 
     <!-- Gallery li end -->
     {% if wss.is_active %}
@@ -26,12 +26,12 @@
 {% endblock %}
 
 {% block footer_menu_items %}
-    <li><a href="{% url 'wss:home' wss.year %}">Home</a>
+    <li><a href="{% url 'wss:home' wss.year %}">صفحهٔ اصلی</a>
     </li>
     {% if wss.is_active %}
         {% if wss.registration_link %}
             <li class="header-ticket">
-            <li><a href="{{ wss.registration_link }}">Register</a>
+            <li><a href="{{ wss.registration_link }}">ثبت‌نام اولیه</a>
             </li>
         {% endif %}
     {% else %}

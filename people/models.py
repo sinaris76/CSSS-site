@@ -3,6 +3,8 @@ from django.db import models
 from polymorphic.models import PolymorphicModel
 from enum import Enum
 
+from people.utils import phone_number_validator
+
 
 class Human(PolymorphicModel):
     name = models.CharField(max_length=40)
@@ -63,9 +65,9 @@ class City(Enum):
 
 
 class Grade(Enum):
-    abbas = 'هفتم'
-    hashtom = 'هشتم'
-    nohom = 'نهم'
+    abbas = 'دهم'
+    hashtom = 'یازدهم'
+    nohom = 'دوازدهم'
 
 
 class StudentApplication(models.Model):
@@ -74,9 +76,13 @@ class StudentApplication(models.Model):
     school_name = models.CharField(max_length=100)
     city = models.CharField(max_length=40)
     email = models.EmailField(max_length=40)
-    answer = models.FileField(upload_to='answers/', validators=[FileExtensionValidator(['pdf'])])
-    grade = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in Grade])
+    phone_number = models.CharField(max_length=20, validators=[phone_number_validator])
+    answer = models.FileField(upload_to='answers/', validators=[FileExtensionValidator(['pdf', 'docx'])])
+    grade = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in Grade],
+                             help_text='پایه‌ای که مهر امسال به آن وارد خواهید شد.')
     city_wanted = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in City], default='اصفهان')
+    request_dorm = models.BooleanField(default=False, help_text='خوابگاه تنها برای مدرسه اصفهان پیش‌بینی شده است.')
+    description = models.TextField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
