@@ -21,7 +21,7 @@ class RegistrationForm(forms.ModelForm):
             'grade': 'پایه',
             'city_wanted': 'کدام شهر اولویت اول شما برای حضور در مدرسه است؟',
             'second_choice_available':  'امکان‌پذیری اولویت دوم',
-            'request_dorm': 'درخواست خوابگاه دارم.',
+            'request_dorm': 'درخواست خوابگاه دارم. (لطفا شیوه‌نامهٔ خوابگاه را در بالا مطالعه کنید.)',
             'description': 'توضیحات بیشتر'
         }
         label_suffix = ''

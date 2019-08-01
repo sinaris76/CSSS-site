@@ -1,12 +1,13 @@
 {% extends 'wssbase.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %}{% load static %}
 {% block title %}ثبت‌نام اولیه{% endblock %}
 {% block content %}
     <section id="main-container" class="main-container container" style="padding: 15vw 0 0 0">
         <div class="container">
             <div class="text-right" style="direction: rtl">
                 دقت کنید که این ثبت‌نام اولیهٔ شما برای مدرسه تابستانه است. پس از پایان مرحله اول ثبت‌نام، با توجه شرایط و ظرفیت مدارس هم‌چنین پاسخ ارسالی شما، افراد واجد شرایط برای حضور در مدرسه اطلاع‌رسانی خواهد شد.<br>
-                امیدواریم شما را در یکی از مدارس امسال ببینیم :)
+                هم‌چنین در صورتی که برای مدرسه اصفهان متقاضی خوابگاه هستید، <a style="color: var(--sorkhabi)" href={% static 'شیوه‌نامه خوابگاه.pdf' %} >این فایل</a> را حتما مطالعه کنید.
+                <br>امیدواریم شما را در یکی از مدارس امسال ببینیم :)
             </div>
         </div>
         <form dir="rtl" method="post" enctype="multipart/form-data">
