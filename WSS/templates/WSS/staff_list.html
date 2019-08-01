@@ -14,12 +14,21 @@
                  <div class="row text-center">
                    <h2 class="section-sub-title title">{{ holding_team.name }}</h2>
                  </div>
-                {% for staff in holding_team.staff.all %}
-                   <div class="col-xs-12 col-sm-6 col-md-3">
-                      {% render_human staff %}
-                   </div>
-                {% endfor %}
-
+                    <div class="row text-center mx-5" dir="rtl">
+                    {% for staff in holding_team.staff.all %}
+                        <div class="col-xs-12 col-sm-6 col-md-3"
+                             {% if forloop.counter|last_four:holding_team.staff.all %}style="display: inline-block; float: none;"
+                             {% endif %}>
+                            {% render_human staff %}
+                        </div>
+                        {% if forloop.counter|divisibleby:4 %}
+                            {% if forloop.last %}{% else %}
+                                </div>
+                                <div class="row text-center" dir="rtl" style="direction: rtl!important;">
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    </div>
 
                </div>
                <br><br>

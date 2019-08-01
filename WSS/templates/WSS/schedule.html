@@ -3,7 +3,7 @@
 
 {% block content %}
 
-	<section id="main-container" class="main-container" style="padding: 40px 0 0 0">
+	<section id="main-container" class="main-container">
 
 		{% if pre_wss_events.count %}
 		<div class="schedule-content  pattern-bg ">
@@ -55,7 +55,6 @@
 		</div><!-- schedule-content 1 end -->
 
 		{% endif %}
-		<div class="gap-60"></div>
 
 		<div class="container">
 			<div class="row text-center">
@@ -82,7 +81,7 @@
 
 							{% for _, events in events_by_time %}
 
-								<div class="schedule-listing {% if forloop.counter|divisibleby:2 %} bg {% endif %}">
+								<div class="schedule-listing">
 								{% for event in events %}
 
 									{% if forloop.counter == 1 %}
