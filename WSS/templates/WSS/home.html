@@ -247,7 +247,7 @@
                         کارگاه‌ها</h3>
                 </div>
 
-                <div class="row text-center mx-5" dir="rtl">
+                <div class="row text-center mx-2" dir="rtl">
                     {% for seminar in wss.non_keynote_seminars %}
                         <div class="col-xs-12 col-sm-6 col-md-3"
                              {% if forloop.counter|last_four:wss.non_keynote_seminars %}style="display: inline-block; float: none;"
@@ -257,7 +257,7 @@
                         {% if forloop.counter|divisibleby:4 %}
                             {% if forloop.last %}{% else %}
                                 </div>
-                                <div class="row text-center" dir="rtl" style="direction: rtl!important;">
+                                <div class="row text-center mx-2" dir="rtl" style="direction: rtl!important;">
                             {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -269,7 +269,7 @@
                         دست‌اندرکاران</h3>
                 </div>
 
-                <div class="row text-center mx-5" dir="rtl">
+                <div class="row text-center mx-2" dir="rtl">
                     {% for staffe in selected_staff %}
                         <div class="col-xs-12 col-sm-6 col-md-3"
                              {% if forloop.counter|last_four:selected_staff %}style="display: inline-block; float: none;"
@@ -279,7 +279,7 @@
                         {% if forloop.counter|divisibleby:4 %}
                             {% if forloop.last %}{% else %}
                                 </div>
-                                <div class="row text-center" dir="rtl" style="direction: rtl!important;">
+                                <div class="row text-center mx-2" dir="rtl" style="direction: rtl!important;">
                             {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -339,8 +339,8 @@
                 </div>
                 <!-- Col end -->
                 <div class="col-md-6">
-                    <div id="map" class="map-bottom text-center">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6479.848007952863!2d51.3476417!3d35.7034877!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e00a8bc1a7e63%3A0x61a5a909b878501!2sSharif+University+of+Technology!5e0!3m2!1sen!2s!4v1564664895486!5m2!1sen!2s"
+                    <div id="map" class="map-bottom text-center  embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6479.848007952863!2d51.3476417!3d35.7034877!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e00a8bc1a7e63%3A0x61a5a909b878501!2sSharif+University+of+Technology!5e0!3m2!1sen!2s!4v1564664895486!5m2!1sen!2s"
                                 width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                     <!-- Google Map -->

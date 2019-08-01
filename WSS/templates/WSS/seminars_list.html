@@ -14,7 +14,7 @@
                     کارگاه‌ها</h3>
             </div>
 
-            <div class="row text-center mx-5" dir="rtl">
+            <div class="row text-center mx-2" dir="rtl">
                     {% for seminar in wss.non_keynote_seminars %}
                         <div class="col-xs-12 col-sm-6 col-md-3"
                              {% if forloop.counter|last_four:wss.non_keynote_seminars %}style="display: inline-block; float: none;"
@@ -24,7 +24,7 @@
                         {% if forloop.counter|divisibleby:4 %}
                             {% if forloop.last %}{% else %}
                                 </div>
-                                <div class="row text-center" dir="rtl" style="direction: rtl!important;">
+                                <div class="row text-center mx-2" dir="rtl" style="direction: rtl!important;">
                             {% endif %}
                         {% endif %}
                     {% endfor %}
