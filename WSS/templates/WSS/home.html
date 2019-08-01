@@ -20,7 +20,7 @@
                             <li><a href="{% url 'wss:home' %}">صفحه اصلی</a></li>
                             <li><a data-scroll href="{% url 'wss:staff-list' wss.year %}">دست‌‌اندرکاران</a></li>
                             <li><a href="{% url 'wss:schedule' wss.year %}">زمان‌بندی</a>
-                            <li><a href="#ts-speakers">کارگاه‌ها</a></li>
+                            <li><a href="{% url 'wss:seminars-list' wss.year %}">کارگاه‌ها</a></li>
                             </li>
                             <li><a href="#ts-intro">درباره</a></li>
                             {% if wss.is_active %}
@@ -49,9 +49,9 @@
         <!--/ Container end -->
 
     </header>
-    {% endblock %}
-    <!--/ Header end -->
-    {% block content %}
+{% endblock %}
+<!--/ Header end -->
+{% block content %}
     <section id="banner">
         <div class="banner-item bg-overlay" style="background-image:url('{{ wss.main_image_url }}')">
             <div class="container-fluid">
@@ -135,9 +135,10 @@
                             </p>
                         {% endif %}
                         <p class="banner-btn">
-                            <a target="_blank" href={% static 'preregistration.pdf' %} class="btn btn-registration" dir="rtl"
+                            <a target="_blank" href='{% static 'preregistration.pdf' %}' class="btn btn-registration"
+                               dir="rtl"
                                style="); font-size: 20px; border-radius: 25px;">
-                                 سوالات ثبت‌نام اولیه
+                                سوالات ثبت‌نام اولیه
                             </a>
                         </p>
                     {% endif %}
@@ -154,15 +155,8 @@
     <section id="ts-intro" class="ts-intro no-padding">
         <div class="container">
             <div class="row">
-            {% if wss.main_clip_url %}
-                    <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="intro-video">
-                        <video controls class="embed-responsive-item" src="{{ wss.main_clip_url }}" preload="none">
-                        </video>
-                    </div>
-                    </div>
-                {% endif %}
-                <div class="col-xs-12 col-sm-12 col-md-6" dir="rtl" style="direction: rtl!important;">
+
+                <div class="col-xs-12 col-sm-12 col-md-6" dir="rtl" style="direction: rtl!important; float: right;">
 
                     <h2 class="intro-title">درباره این رویداد</h2>
                     </br>
@@ -179,7 +173,14 @@
                         <a href="{% url 'wss:home' %}" class="btn btn-primary">Visit the Latest seminar page</a>
                     {% endif %}
                 </div>
-
+                {% if wss.main_clip_url %}
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <div class="intro-video">
+                            <video controls class="embed-responsive-item" src="{{ wss.main_clip_url }}" preload="none">
+                            </video>
+                        </div>
+                    </div>
+                {% endif %}
 
 
                 <!-- Col end -->
@@ -195,10 +196,10 @@
         <div class="container">
             <div class="row">
                 <div class="statics clearfix">
-                    <div class="col-md-6 col-xs-8 text-center">
+                    <div class="col-sm-6 text-center">
                         <a data-scroll href="#ts-speakers">
                             <div class="ts-facts">
-                        <span class="ts-facts-img">
+                        <span class="ts-facts-img mr-5">
                         <img src="{% static 'images/icons/fact-workshop.png' %}" alt=""/>
                         </span>
                                 <div class="ts-facts-content">
@@ -212,10 +213,10 @@
                     </div>
 
                     <!-- Col end -->
-                    <div class="col-md-6 col-xs-8 text-center">
+                    <div class="col-sm-6 text-center">
                         <a data-scroll href="{% url 'wss:staff-list' wss.year %}">
                             <div class="ts-facts">
-                        <span class="ts-facts-img">
+                        <span class="ts-facts-img mr-5">
                         <img src="{% static 'images/icons/fact-country.png' %}" alt="Staff"/>
                         </span>
                                 <div class="ts-facts-content">
@@ -235,41 +236,62 @@
         <!--/ Container end -->
     </section>
     <!--/ Newsletter end -->
-    <section id="ts-speakers" class="ts-speakers gradient-bg"
-             style="background-image: url('../../../static/images/pattern1.jpg');">
+    <section id="ts-speakers" class="ts-speakers gradient-bg pb-5">
         <div class="container">
             <!--/ Title row end -->
             <div class="row">
 
                 <div class="row text-center">
-                    <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
+                    <h3 class="section-sub-title title-white"
+                        style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
                         کارگاه‌ها</h3>
                 </div>
 
-                {% for seminar in wss.non_keynote_seminars %}
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
-                    </div>
-                {% endfor %}
-
-            </div>
-            <br>
-            <div class="row text-center">
-                <h3 class="section-sub-title title-white" style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
-                    دست‌اندرکاران</h3>
-            </div>
-            {% for staffe in selected_staff %}
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    {% render_human staffe %}
+                <div class="row text-center mx-5" dir="rtl">
+                    {% for seminar in wss.non_keynote_seminars %}
+                        <div class="col-xs-12 col-sm-6 col-md-3"
+                             {% if forloop.counter|last_four:wss.non_keynote_seminars %}style="display: inline-block; float: none;"
+                             {% endif %}>
+                            {% render_human seminar.speaker subtitle=seminar.speaker.short_bio url=seminar.get_absolute_url %}
+                        </div>
+                        {% if forloop.counter|divisibleby:4 %}
+                            {% if forloop.last %}{% else %}
+                                </div>
+                                <div class="row text-center" dir="rtl" style="direction: rtl!important;">
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
+                <br>
+                <div class="row text-center">
+                    <h3 class="section-sub-title title-white"
+                        style="text-shadow: 0px 0px 5px gray; color: var(--main-yellow)">
+                        دست‌اندرکاران</h3>
+                </div>
 
-        <div style="margin: 0!important;" class="row">
-            <div class="general-btn text-center">
+                <div class="row text-center mx-5" dir="rtl">
+                    {% for staffe in selected_staff %}
+                        <div class="col-xs-12 col-sm-6 col-md-3"
+                             {% if forloop.counter|last_four:selected_staff %}style="display: inline-block; float: none;"
+                             {% endif %}>
+                            {% render_human staffe %}
+                        </div>
+                        {% if forloop.counter|divisibleby:4 %}
+                            {% if forloop.last %}{% else %}
+                                </div>
+                                <div class="row text-center" dir="rtl" style="direction: rtl!important;">
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="general-btn text-center mt-5">
                 <a class="btn btn-registration" href="{% url 'wss:staff-list' wss.year %}">دیدن تمام دست‌اندرکاران</a>
             </div>
         </div>
+
+        </div>
+
         <!-- Content row 2 end -->
         <!--/ Container end -->
     </section>
@@ -281,8 +303,9 @@
                 <div class="col-md-6 ">
                     <div class="bottom-contact white">
                         <h4 class="white">Organizer info</h4>
-                        <p>The event is held by <a href="https://t.me/rastaiha">Rasta Knowledge Spreading Group </a> and the <a href="http://ssc.ce.sharif.edu">Student Scientific
-                            Chapter (SSC)</a> of <a href="http://ce.sharif.edu">Computer Engineering Department</a>
+                        <p>The event is held by <a href="https://t.me/rastaiha">Rasta Knowledge Spreading Group </a> and
+                            the <a href="http://ssc.ce.sharif.edu">Student Scientific
+                                Chapter (SSC)</a> of <a href="http://ce.sharif.edu">Computer Engineering Department</a>
                             of <a href="http://sharif.edu">Sharif University of Technology</a>
                         </p>
                         <br>
@@ -316,7 +339,10 @@
                 </div>
                 <!-- Col end -->
                 <div class="col-md-6">
-                    <div id="map" class="map-bottom"></div>
+                    <div id="map" class="map-bottom text-center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6479.848007952863!2d51.3476417!3d35.7034877!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e00a8bc1a7e63%3A0x61a5a909b878501!2sSharif+University+of+Technology!5e0!3m2!1sen!2s!4v1564664895486!5m2!1sen!2s"
+                                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
                     <!-- Google Map -->
                 </div>
                 <!-- Col end -->

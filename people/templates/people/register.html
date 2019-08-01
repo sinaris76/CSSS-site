@@ -2,18 +2,19 @@
 {% load crispy_forms_tags %}
 {% block title %}ثبت‌نام اولیه{% endblock %}
 {% block content %}
-    <section id="main-container" class="main-container container" style="padding: 15vw 0 0 0">
-        <div class="container">
-            <div class="text-right" style="direction: rtl">
-                دقت کنید که این ثبت‌نام اولیهٔ شما برای مدرسه تابستانه است. پس از پایان مرحله اول ثبت‌نام، با توجه شرایط و ظرفیت مدارس هم‌چنین پاسخ ارسالی شما، افراد واجد شرایط برای حضور در مدرسه اطلاع‌رسانی خواهد شد.<br>
-                امیدواریم شما را در یکی از مدارس امسال ببینیم :)
-            </div>
-        </div>
-        <form dir="rtl" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
+    <section id="main-container" class="main-container fluid pb-5"
+             style="padding: 10vw 0 0 0">
+        <div class="container py-5" style="background-color: rgba(255,255,255,0.1); -webkit-border-radius: 2rem;-moz-border-radius: 2rem;border-radius: 2rem;">
+                <div class="text-right alert alert-info" style="direction: rtl">
+                    دقت کنید که این ثبت‌نام اولیهٔ شما برای مدرسه تابستانه است. پس از پایان مرحله اول ثبت‌نام، با توجه شرایط و ظرفیت مدارس هم‌چنین پاسخ ارسالی شما، افراد واجد شرایط برای حضور در مدرسه اطلاع‌رسانی خواهد شد.<br>
+                    امیدواریم شما را در یکی از مدارس امسال ببینیم :)
+                </div>
+            <form class="registration-form" dir="rtl" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
 
-            <button type="submit">ارسال</button>
-        </form>
+                <button type="submit" class="btn btn-success">ارسال</button>
+            </form>
+        </div>
     </section>
 {% endblock %}

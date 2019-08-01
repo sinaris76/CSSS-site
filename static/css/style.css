@@ -72,6 +72,7 @@ body {
     background: #fff;
     color: #333;
     font-family: "Iranian Sans";
+    height: 100%;
 }
 
 body,
@@ -144,6 +145,7 @@ body {
 .body-inner {
     position: relative;
     overflow: hidden;
+    min-height: 100%;
 }
 
 a:link,
@@ -382,7 +384,7 @@ img.pull-right {
     font-size: 36px;
     line-height: 46px;
     margin: 0 0 60px;
-    color: #1c1c24;
+    color: white;
 }
 
 .section-title.title-white,
@@ -1744,7 +1746,6 @@ ul.navbar-nav > li:hover > a {
 .ts-facts .ts-facts-img {
     display: inline-block;
     vertical-align: top;
-    margin-right: 25px;
 }
 
 .ts-facts .ts-facts-content {
@@ -1883,6 +1884,10 @@ ul.navbar-nav > li:hover > a {
     margin: 10px 0px 10px 0px;
 }
 
+.ts-speakers, .main-container
+{
+    background-image: url('../images/pattern1.jpg');
+}
 .ts-speaker:hover {
     -webkit-transform: translateY(-4px);
     transform: translateY(-4px);
@@ -2069,6 +2074,16 @@ ul.navbar-nav > li:hover > a {
 .ts-speaker-details .ts-speaker-info .ts-speaker-name {
     font-size: 24px;
 }
+.ts-speaker-session, .ts-speaker-session h1, .ts-speaker-session h2, .ts-speaker-session h3, .ts-speaker-session h4, .ts-speaker-session h5,
+.ts-speaker-session h6
+, .main-container, .main-container h1, .main-container h2, .main-container h3, .main-container h4, .main-container h5,
+.main-container h6
+, .ts-speaker.session *
+{
+    direction: rtl;
+    color: white!important;
+}
+
 
 .ts-speaker-session.right {
     padding-left: 20px;
@@ -2498,6 +2513,9 @@ h4.panel-title a.collapsed:before {
     padding: 30px 0;
     position: relative;
     background-attachment: fixed;
+    bottom: 0!important;
+    width: 100%;
+    margin: 0;
 }
 
 .footer .container {
@@ -3541,4 +3559,37 @@ label {
 {
     background-color: var(--main-yellow);
     color: black!important;
+}
+
+.registration-form input, .registration-form select, .registration-form textarea
+{
+    color: white;
+}
+
+.registration-form textarea
+{
+    resize: none;
+}
+
+registration-form input, .registration-form select option
+{
+    color: black;
+}
+
+.registration-form input[type=checkbox]
+{
+    position: relative!important;
+    margin-left: 0!important;
+}
+.registration-form textarea
+{
+    resize: none;
+}
+@media (min-width: 768px)
+{
+    .mx-md-auto
+    {
+        margin-left:auto!important;
+        margin-right:auto!important;
+    }
 }

@@ -15,7 +15,7 @@
     {% if wss.is_active %}
         {% if wss.registration_link %}
             <li class="header-ticket">
-                <a class="btn-registration" style="border-radius: 25px;" href="{{ wss.registration_link }}">ثبت‌نام</a>
+                <a class="btn-registration" style="border-radius: 25px;" href="{{ wss.registration_link }}">ثبت‌نام اولیه</a>
             </li>
         {% endif %}
     {% else %}
@@ -26,8 +26,6 @@
 {% endblock %}
 
 {% block footer_menu_items %}
-    <li><a href="{% url 'wss:home' wss.year %}">صفحهٔ اصلی</a>
-    </li>
     {% if wss.is_active %}
         {% if wss.registration_link %}
             <li class="header-ticket">
@@ -37,4 +35,7 @@
     {% else %}
         <li><a href="{% url 'wss:home' %}">Visit the Latest seminar page</a></li>
     {% endif %}
+    <li><a href="{% url 'wss:home' wss.year %}">صفحهٔ اصلی</a>
+    </li>
+
 {% endblock %}

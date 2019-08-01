@@ -14,6 +14,11 @@ class CreatorsListView(FooterMixin, ListView):
     template_name = 'people/creators_list.html'
     context_object_name = 'technical_experts'
 
+    def get_context_data(self, **kwargs):
+        context = super(CreatorsListView, self).get_context_data(**kwargs)
+        context['wss'] = WSS.active_wss()
+        return context
+
 
 class RegistrationView(FormView):
     form_class = RegistrationForm

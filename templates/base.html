@@ -85,7 +85,7 @@
     {% block content %}
     {% endblock %}
 
-    <footer id="footer" class="footer text-center">
+    <footer id="footer" class="row footer text-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -108,16 +108,16 @@
                     <!-- Footer menu end -->
                     <div class="footer-logo">
                         <a href="http://ssc.ce.sharif.edu">
-                            <img src="/static/images/SSC-logo-white.png" alt="footer logo" width="100">
+                            <img src="/static/images/SSC-logo-white.png" alt="footer logo" style="width: 20vw; max-width: 100px;">
                         </a>
                         <a href="https://t.me/rastaiha">
-                            <img src="/static/images/rasta-logo.png" alt="footer logo" width="100">
+                            <img src="/static/images/rasta-logo.png" alt="footer logo" style="width: 20vw;max-width: 100px;">
                         </a>
                         <a href="http://www.mathhouse.org" >
-                            <img src="/static/images/Arm-Riyazi-Esfahan.png" alt="footer logo" width="80">
+                            <img src="/static/images/Arm-Riyazi-Esfahan.png" alt="footer logo" style="width: 20vw;max-width: 80px;">
                         </a>
                         <a href="{% url 'wss:home' %}" >
-                            <img src="/static/images/csss-white.png" alt="footer logo" width="75">
+                            <img src="/static/images/csss-white.png" alt="footer logo" style="width: 20vw;max-width: 75px;">
                         </a>
                     </div>
                     <div class="footer-social">
@@ -150,6 +150,7 @@
 
         <!--<div id="back-to-top" data-spy="affix" data-offset-top="10" class="header affix"></div>-->
     </footer>
+
     <!-- Footer end -->
 
     <!-- Javascript Files
@@ -196,3 +197,6 @@
 <!-- Body inner end -->
 </body>
 </html>
+
+{% block style %}
+{% endblock %}
