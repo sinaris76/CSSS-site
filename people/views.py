@@ -35,12 +35,16 @@ class RegistrationView(FormView):
         application = StudentApplication.objects.create(
             first_name=form.cleaned_data.get('first_name'),
             last_name=form.cleaned_data.get('last_name'),
+            phone_number=form.cleaned_data.get('phone_number'),
             school_name=form.cleaned_data.get('school_name'),
             city=form.cleaned_data.get('city'),
             email=form.cleaned_data.get('email'),
             answer=form.cleaned_data.get('answer'),
             grade=form.cleaned_data.get('grade'),
-            city_wanted=form.cleaned_data.get('city_wanted')
+            city_wanted=form.cleaned_data.get('city_wanted'),
+            request_dorm=form.cleaned_data.get('request_dorm'),
+            second_choice_available=form.cleaned_data.get('second_choice_available'),
+            description=form.cleaned_data.get('description')
         )
         return super().form_valid(form)
 
