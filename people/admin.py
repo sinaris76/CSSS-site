@@ -23,6 +23,9 @@ class HoldingTeamAdmin(admin.ModelAdmin):
 class StudentApplicationAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name')
 
+    def get_readonly_fields(self, request, obj=None):
+        return [f.name for f in self.model._meta.fields]
+
 
 admin.site.register(Role)
 admin.site.register(TechnicalExpert)

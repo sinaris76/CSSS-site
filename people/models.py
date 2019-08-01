@@ -83,7 +83,10 @@ class StudentApplication(models.Model):
     city_wanted = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in City], default='اصفهان')
     request_dorm = models.BooleanField(default=False, help_text='خوابگاه تنها برای مدرسه اصفهان پیش‌بینی شده است.')
     description = models.TextField(max_length=500, null=True, blank=True)
-
+    second_choice_available = models.BooleanField(
+        default=False,
+        help_text='در صورتی که برای شهر اول پذیرفته نشوم، مایل به حضور در مدرسه شهر دیگر هستم.'
+    )
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
