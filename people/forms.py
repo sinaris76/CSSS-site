@@ -1,8 +1,11 @@
 from django import forms
 from people.models import *
+from captcha.fields import CaptchaField
 
 
 class RegistrationForm(forms.ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = StudentApplication
         fields = ('first_name', 'last_name', 'phone_number', 'email', 'school_name', 'city', 'answer', 'grade',
