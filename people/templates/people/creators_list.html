@@ -11,13 +11,22 @@
          </div>
 
          <!--/ Title row end -->
-         <div class="row">
-            {% for expert in technical_experts %}
-            <div class="col-xs-12 col-sm-6 col-md-3">
-               {% render_human expert subtitle=expert.role %}
-            </div>
-            {% endfor %}
-         </div>
+
+      <div class="row text-center mx-2" dir="rtl">
+                    {% for expert in technical_experts %}
+                        <div class="col-xs-12 col-sm-6 col-md-3"
+                             {% if forloop.counter|last_four:technical_experts %}style="display: inline-block; float: none;"
+                             {% endif %}>
+                            {% render_human expert subtitle=expert.role %}
+                        </div>
+                        {% if forloop.counter|divisibleby:4 %}
+                            {% if forloop.last %}{% else %}
+                                </div>
+                                <div class="row text-center mx-2" dir="rtl" style="direction: rtl!important;">
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
          <br>
 
       <!-- Content row 2 end -->

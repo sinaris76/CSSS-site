@@ -1984,6 +1984,7 @@ ul.navbar-nav > li:hover > a {
     line-height: 1.3em;
     overflow: hidden;
     direction: rtl;
+    color: #1c2c24!important;
 }
 
 .ts-speaker-info .ts-speaker-name a {
