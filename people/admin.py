@@ -21,7 +21,7 @@ class HoldingTeamAdmin(admin.ModelAdmin):
 
 
 class StudentApplicationAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name')
+    list_display = ('id', 'first_name', 'last_name', 'city_wanted', 'grade')
 
     def get_readonly_fields(self, request, obj=None):
         return [f.name for f in self.model._meta.fields]
