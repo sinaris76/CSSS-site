@@ -36,6 +36,7 @@ class RegistrationView(FormView):
             first_name=form.cleaned_data.get('first_name'),
             last_name=form.cleaned_data.get('last_name'),
             phone_number=form.cleaned_data.get('phone_number'),
+            national_id=form.cleaned_data.get('national_id'),
             school_name=form.cleaned_data.get('school_name'),
             city=form.cleaned_data.get('city'),
             email=form.cleaned_data.get('email'),

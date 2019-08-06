@@ -8,11 +8,12 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = StudentApplication
-        fields = ('first_name', 'last_name', 'phone_number', 'email', 'school_name', 'city', 'answer', 'grade',
+        fields = ('first_name', 'last_name', 'national_id', 'phone_number', 'email', 'school_name', 'city', 'answer', 'grade',
                   'city_wanted', 'second_choice_available', 'request_dorm', 'description')
         labels = {
             'first_name': 'نام',
             'last_name': 'نام خانوادگی',
+            'national_id': 'کد ملی',
             'school_name': 'نام مدرسه',
             'city': 'شهر محل سکونت',
             'email': 'ایمیل',
@@ -24,4 +25,5 @@ class RegistrationForm(forms.ModelForm):
             'request_dorm': 'درخواست خوابگاه دارم. (لطفا شیوه‌نامهٔ خوابگاه را در بالا مطالعه کنید.)',
             'description': 'توضیحات بیشتر'
         }
+
         label_suffix = ''

@@ -20,3 +20,11 @@ def phone_number_validator(phone_number):
             'شماره همراه معتبر وارد کنید.'
         )
 
+
+def national_id_validator(national_id):
+    national_id = english_digits(national_id)
+    regex = re.compile("^\d{10}$")
+    if not regex.match(national_id):
+        raise ValidationError(
+            'کد ملی ۱۰ رقمی معتبر وارد کنید.'
+        )

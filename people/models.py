@@ -3,7 +3,7 @@ from django.db import models
 from polymorphic.models import PolymorphicModel
 from enum import Enum
 
-from people.utils import phone_number_validator
+from people.utils import phone_number_validator, national_id_validator
 
 
 class Human(PolymorphicModel):
@@ -74,10 +74,12 @@ class StudentApplication(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     school_name = models.CharField(max_length=100)
+    national_id = models.CharField(max_length=10, validators=[national_id_validator])
     city = models.CharField(max_length=40)
     email = models.EmailField(max_length=40)
     phone_number = models.CharField(max_length=20, validators=[phone_number_validator])
-    answer = models.FileField(upload_to='answers/', validators=[FileExtensionValidator(['pdf', 'docx'])])
+    answer = models.FileField(upload_to='answers/', validators=[FileExtensionValidator(['pdf', 'docx'])],
+                              help_text='فایل ارسالی می‌تواند فرمت‌های pdf و docx داشته باشد.')
     grade = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in Grade],
                              help_text='پایه‌ای که مهر امسال به آن وارد خواهید شد.')
     city_wanted = models.CharField(max_length=7, choices=[(tag.name, tag.value) for tag in City], default='اصفهان')
@@ -87,6 +89,7 @@ class StudentApplication(models.Model):
         default=False,
         help_text='در صورتی که برای شهر اول پذیرفته نشوم، مایل به حضور در مدرسه شهر دیگر هستم.'
     )
+
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
