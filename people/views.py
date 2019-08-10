@@ -1,3 +1,7 @@
+import csv
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
@@ -5,7 +9,7 @@ from django.views.generic.edit import FormView
 
 from WSS.mixins import FooterMixin
 from WSS.models import WSS
-from people.models import TechnicalExpert, StudentApplication
+from people.models import TechnicalExpert, StudentApplication, Grade
 from people.forms import RegistrationForm
 
 
@@ -54,3 +58,46 @@ def register_success(request):
     return render(request, template_name='register_success.html', context={
         'wss': WSS.active_wss()
     })
+
+
+@login_required
+def get_export(request):
+    if not request.user.is_superuser:
+        return PermissionDenied
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=export.csv'
+    writer = csv.writer(response)
+    head = [
+        'first_name',
+        'last_name',
+        'national_id',
+        'phone_number',
+        'city_wanted',
+        'city',
+        'request_dorm',
+        'second_choice',
+        'grade',
+        'school_name',
+        'email',
+        'answer',
+        'description',
+    ]
+    writer.writerow(head)
+    for sa in StudentApplication.objects.all():
+        row = [
+            sa.first_name,
+            sa.last_name,
+            sa.national_id,
+            sa.phone_number,
+            sa.city_wanted,
+            sa.city,
+            sa.request_dorm,
+            sa.second_choice_available,
+            Grade[sa.grade].value,
+            sa.school_name,
+            sa.email,
+            request.build_absolute_uri().split(request.get_full_path())[0] + sa.answer.url,
+            sa.description
+        ]
+        writer.writerow(row)
+    return response
