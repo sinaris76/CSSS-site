@@ -1,8 +1,10 @@
+import datetime
+
 import csv
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.http import Http404, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
@@ -29,6 +31,14 @@ class RegistrationView(FormView):
     form_class.label_suffix = ""
     template_name = 'people/register.html'
     success_url = reverse_lazy('people:register_success')
+
+    def get(self, request, *args, **kwargs):
+        now = datetime.datetime.now()
+        mordad_24 = datetime.datetime(2019, 8, 15, 0, 15, 0)
+        if now > mordad_24:
+            return redirect(reverse('people:expire'))
+        else:
+            return super(RegistrationView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(RegistrationView, self).get_context_data(**kwargs)
@@ -101,3 +111,9 @@ def get_export(request):
         ]
         writer.writerow(row)
     return response
+
+
+def expire_registration(request):
+    return render(request, 'register_end_time.html', context={
+        'wss': WSS.active_wss()
+    })

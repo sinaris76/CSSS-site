@@ -1,0 +1,28 @@
+{% extends 'wssbase.html' %}
+{% block content %}
+    <section id="container" class="main-container fluid" style="height: 100vh!important;">
+        <div class="container-fluid">
+            <div class="text-center" style="direction: rtl">
+                <div class="alert alert-danger">
+                    مهلت ثبت‌نام به پایان رسید :(<br>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block style %}
+    <style>
+    {{ block.super }}
+        .footer{
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+{% endblock %}
+
+{% block footer_menu_items %}
+    <li><a href="{% url 'wss:home' wss.year %}">صفحهٔ اصلی</a>
+    </li>
+
+{% endblock %}
