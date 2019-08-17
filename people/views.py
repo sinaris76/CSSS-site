@@ -3,6 +3,7 @@ import datetime
 import csv
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.db.models import Q
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
@@ -71,11 +72,15 @@ def register_success(request):
 
 
 @login_required
-def get_export(request):
+def get_export(request, city_wanted):
+    city_wanted = int(city_wanted)
     if not request.user.is_superuser:
         return PermissionDenied
+    cities = ['Tehran', 'Isfahan']
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=export.csv'
+    response['Content-Disposition'] = 'attachment; filename={}-export.csv'.format(
+        cities[city_wanted - 1] if city_wanted > 0 else 'All'
+    )
     writer = csv.writer(response)
     head = [
         'first_name',
@@ -93,7 +98,15 @@ def get_export(request):
         'description',
     ]
     writer.writerow(head)
-    for sa in StudentApplication.objects.all():
+    if city_wanted > 0:
+        sas = StudentApplication.objects.filter(
+            Q(
+                Q(city_wanted=cities[city_wanted - 1]) | Q(second_choice_available=True)
+            )
+        )
+    else:
+        sas = StudentApplication.objects.all()
+    for sa in sas:
         row = [
             sa.first_name,
             sa.last_name,
